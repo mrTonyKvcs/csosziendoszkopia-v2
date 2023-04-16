@@ -30,7 +30,7 @@ return [
     //HUF
     'HUF_MERCHANT' => env('SIMPLEPAY_HUF_MERCHANT'),            //merchant account ID (HUF)
     'HUF_SECRET_KEY' => env('SIMPLEPAY_HUF_SECRET_KEY'),          //secret key for account ID (HUF)
-    
+
     //EUR
     'EUR_MERCHANT' => "",            //merchant account ID (EUR)
     'EUR_SECRET_KEY' => "",          //secret key for account ID (EUR)
@@ -42,7 +42,7 @@ return [
     'SANDBOX' => env('SIMPLEPAY_SANDBOX'),
 
     //common return URL
-    'URL' => 'http://' . $_SERVER['HTTP_HOST'] . '/payment-back',
+    'URL' => 'http://' . $_SERVER['HTTP_HOST'] . '/api/payment-back',
 
     //optional uniq URL for events
     /*

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlszamla xmlns="http://www.szamlazz.hu/xmlszamla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.szamlazz.hu/szamla/xmlszamla http://www.szamlazz.hu/szamla/docs/xsds/agent/xmlszamla.xsd">
+  <beallitasok>
+    <szamlaagentkulcs><![CDATA[unjd4fpyfnz3unjd4fntm4wvunjd4frtmp2eunjd4f]]></szamlaagentkulcs>
+    <eszamla><![CDATA[true]]></eszamla>
+    <szamlaLetoltes><![CDATA[true]]></szamlaLetoltes>
+    <szamlaLetoltesPld><![CDATA[1]]></szamlaLetoltesPld>
+    <valaszVerzio><![CDATA[1]]></valaszVerzio>
+    <aggregator/>
+  </beallitasok>
+  <fejlec>
+    <keltDatum><![CDATA[2022-10-31]]></keltDatum>
+    <teljesitesDatum><![CDATA[2022-10-31]]></teljesitesDatum>
+    <fizetesiHataridoDatum><![CDATA[2022-10-31]]></fizetesiHataridoDatum>
+    <fizmod><![CDATA[bankkártya]]></fizmod>
+    <penznem><![CDATA[Ft]]></penznem>
+    <szamlaNyelve><![CDATA[hu]]></szamlaNyelve>
+    <elolegszamla><![CDATA[true]]></elolegszamla>
+    <fizetve><![CDATA[true]]></fizetve>
+    <eusAfa><![CDATA[false]]></eusAfa>
+    <szamlaSablon><![CDATA[SzlaMost]]></szamlaSablon>
+  </fejlec>
+  <elado/>
+  <vevo>
+    <nev><![CDATA[Kovács J]]></nev>
+    <orszag/>
+    <irsz><![CDATA[6000]]></irsz>
+    <telepules><![CDATA[Teszt]]></telepules>
+    <cim><![CDATA[teszt 99]]></cim>
+    <sendEmail><![CDATA[true]]></sendEmail>
+  </vevo>
+  <fuvarlevel/>
+  <tetelek>
+    <tetel>
+      <megnevezes><![CDATA[Spaletta Színházi Est - A Pacal ideje Ficzere Béla főszereplésével]]></megnevezes>
+      <mennyiseg><![CDATA[1.0]]></mennyiseg>
+      <mennyisegiEgyseg><![CDATA[db]]></mennyisegiEgyseg>
+      <nettoEgysegar><![CDATA[12598.42519685]]></nettoEgysegar>
+      <afakulcs><![CDATA[27]]></afakulcs>
+      <nettoErtek><![CDATA[12598.42519685]]></nettoErtek>
+      <afaErtek><![CDATA[3401.5748031496]]></afaErtek>
+      <bruttoErtek><![CDATA[16000.0]]></bruttoErtek>
+    </tetel>
+  </tetelek>
+</xmlszamla>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlszamla xmlns="http://www.szamlazz.hu/xmlszamla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.szamlazz.hu/szamla/xmlszamla http://www.szamlazz.hu/szamla/docs/xsds/agent/xmlszamla.xsd">
+  <beallitasok>
+    <szamlaagentkulcs><![CDATA[kd5qryk9vfqakd5qry3ggyvfkd5qryk2xrz5kd5qry]]></szamlaagentkulcs>
+    <eszamla><![CDATA[true]]></eszamla>
+    <szamlaLetoltes><![CDATA[true]]></szamlaLetoltes>
+    <szamlaLetoltesPld><![CDATA[1]]></szamlaLetoltesPld>
+    <valaszVerzio><![CDATA[1]]></valaszVerzio>
+    <aggregator/>
+  </beallitasok>
+  <fejlec>
+    <keltDatum><![CDATA[2023-01-17]]></keltDatum>
+    <teljesitesDatum><![CDATA[2023-01-17]]></teljesitesDatum>
+    <fizetesiHataridoDatum><![CDATA[2023-01-17]]></fizetesiHataridoDatum>
+    <fizmod><![CDATA[bankkártya]]></fizmod>
+    <penznem><![CDATA[Ft]]></penznem>
+    <szamlaNyelve><![CDATA[hu]]></szamlaNyelve>
+    <elolegszamla><![CDATA[true]]></elolegszamla>
+    <szamlaszamElotag><![CDATA[END]]></szamlaszamElotag>
+    <fizetve><![CDATA[true]]></fizetve>
+    <eusAfa><![CDATA[false]]></eusAfa>
+    <szamlaSablon><![CDATA[SzlaMost]]></szamlaSablon>
+  </fejlec>
+  <elado/>
+  <vevo>
+    <nev><![CDATA[Gór Józsefné]]></nev>
+    <orszag/>
+    <irsz><![CDATA[6050]]></irsz>
+    <telepules><![CDATA[Lajosmizse]]></telepules>
+    <cim><![CDATA[Bem utca 1. ]]></cim>
+    <sendEmail><![CDATA[true]]></sendEmail>
+  </vevo>
+  <fuvarlevel/>
+  <tetelek>
+    <tetel>
+      <megnevezes><![CDATA[Colonoscopia]]></megnevezes>
+      <mennyiseg><![CDATA[1.0]]></mennyiseg>
+      <mennyisegiEgyseg><![CDATA[db]]></mennyisegiEgyseg>
+      <nettoEgysegar><![CDATA[5000.0]]></nettoEgysegar>
+      <afakulcs><![CDATA[TAM]]></afakulcs>
+      <nettoErtek><![CDATA[5000.0]]></nettoErtek>
+      <afaErtek><![CDATA[0.0]]></afaErtek>
+      <bruttoErtek><![CDATA[5000.0]]></bruttoErtek>
+      <megjegyzes><![CDATA[ÁFA mentes az ÁFA tv. 85§ (1) bek.c. pont alapján]]></megjegyzes>
+    </tetel>
+  </tetelek>
+</xmlszamla>

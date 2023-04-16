@@ -116,11 +116,14 @@ const AppointmentController = ({ doctors, doctor, medicalExaminations }) => {
     ]);
 
     const submit = useCallback(() => {
-        try {
-            axios.post("/api/reservation", data);
-        } catch (err) {
-            console.log(err);
-        }
+        axios
+            .post("/api/payment-start", data)
+            .then((response) => {
+                window.location.replace(response.data.url);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     });
 
     return (

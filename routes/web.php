@@ -20,9 +20,9 @@ use Inertia\Inertia;
 
 Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 
-Route::get('payment-start', [PaymentController::class, 'start'])->name('payment.start');
-Route::get('payment-back', [PaymentController::class, 'back'])
-    ->name('payment.back');
+// Route::get('payment-start', [PaymentController::class, 'start'])->name('payment.start');
+// Route::get('payment-back', [PaymentController::class, 'back'])
+//     ->name('payment.back');
 
 Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index');
 

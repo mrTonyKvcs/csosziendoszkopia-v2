@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlszamla xmlns="http://www.szamlazz.hu/xmlszamla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.szamlazz.hu/szamla/xmlszamla http://www.szamlazz.hu/szamla/docs/xsds/agent/xmlszamla.xsd">
+  <beallitasok>
+    <szamlaagentkulcs><![CDATA[jhghwq8mypzhzjjefqcfwwmhqv4sfbyazafyexbpad]]></szamlaagentkulcs>
+    <eszamla><![CDATA[true]]></eszamla>
+    <szamlaLetoltes><![CDATA[true]]></szamlaLetoltes>
+    <szamlaLetoltesPld><![CDATA[1]]></szamlaLetoltesPld>
+    <valaszVerzio><![CDATA[1]]></valaszVerzio>
+    <aggregator/>
+  </beallitasok>
+  <fejlec>
+    <keltDatum><![CDATA[2022-10-12]]></keltDatum>
+    <teljesitesDatum><![CDATA[2022-10-12]]></teljesitesDatum>
+    <fizetesiHataridoDatum><![CDATA[2022-10-12]]></fizetesiHataridoDatum>
+    <fizmod><![CDATA[bankkártya]]></fizmod>
+    <penznem><![CDATA[Ft]]></penznem>
+    <szamlaNyelve><![CDATA[hu]]></szamlaNyelve>
+    <elolegszamla><![CDATA[true]]></elolegszamla>
+    <fizetve><![CDATA[true]]></fizetve>
+    <eusAfa><![CDATA[false]]></eusAfa>
+    <szamlaSablon><![CDATA[SzlaMost]]></szamlaSablon>
+  </fejlec>
+  <elado/>
+  <vevo>
+    <nev><![CDATA[Kovas Sd]]></nev>
+    <orszag/>
+    <irsz><![CDATA[6000]]></irsz>
+    <telepules><![CDATA[Kecskemet]]></telepules>
+    <cim><![CDATA[Petfoi utca 32]]></cim>
+    <sendEmail><![CDATA[true]]></sendEmail>
+  </vevo>
+  <fuvarlevel/>
+  <tetelek>
+    <tetel>
+      <megnevezes><![CDATA[Gasztronómia és alkotás egyszerre a Spalettában !]]></megnevezes>
+      <mennyiseg><![CDATA[1.0]]></mennyiseg>
+      <mennyisegiEgyseg><![CDATA[db]]></mennyisegiEgyseg>
+      <nettoEgysegar><![CDATA[59842.519685039]]></nettoEgysegar>
+      <afakulcs><![CDATA[27]]></afakulcs>
+      <nettoErtek><![CDATA[59842.519685039]]></nettoErtek>
+      <afaErtek><![CDATA[16157.480314961]]></afaErtek>
+      <bruttoErtek><![CDATA[76000.0]]></bruttoErtek>
+    </tetel>
+  </tetelek>
+</xmlszamla>

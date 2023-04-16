@@ -123,7 +123,9 @@ class PaymentController extends Controller
             'applicant_id' => $applicant->id
         ]);
 
-        return redirect()->to($trx->returnData['paymentUrl'])->header('Access-Control-Allow-Origin', '*');
+        return response(['url' => $trx->returnData['paymentUrl']]);
+
+        // return redirect()->to($trx->returnData['paymentUrl'])->header('Access-Control-Allow-Origin', '*');
     }
 
     public function back()
@@ -150,7 +152,8 @@ class PaymentController extends Controller
 
             $payment->update(['status' => Status::END_PAYMENT]);
 
-            $appointment = $payment->paymentable;
+            $appointment = Appointment::find($payment->paymentable_id);
+            $appointment->update(['applicant_id' => $payment->applicant_id]);
 
             $invoiceNumber = $this->createInvoice($payment);
 

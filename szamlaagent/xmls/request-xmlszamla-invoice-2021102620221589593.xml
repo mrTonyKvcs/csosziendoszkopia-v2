@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlszamla xmlns="http://www.szamlazz.hu/xmlszamla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.szamlazz.hu/szamla/xmlszamla http://www.szamlazz.hu/szamla/docs/xsds/agent/xmlszamla.xsd">
+  <beallitasok>
+    <szamlaagentkulcs><![CDATA[jhghwq8mypzhzjjefqcfwwmhqv4sfbyazafyexbpad]]></szamlaagentkulcs>
+    <eszamla><![CDATA[true]]></eszamla>
+    <szamlaLetoltes><![CDATA[true]]></szamlaLetoltes>
+    <szamlaLetoltesPld><![CDATA[1]]></szamlaLetoltesPld>
+    <valaszVerzio><![CDATA[1]]></valaszVerzio>
+    <aggregator/>
+  </beallitasok>
+  <fejlec>
+    <keltDatum><![CDATA[2021-10-26]]></keltDatum>
+    <teljesitesDatum><![CDATA[2021-10-26]]></teljesitesDatum>
+    <fizetesiHataridoDatum><![CDATA[2021-11-03]]></fizetesiHataridoDatum>
+    <fizmod><![CDATA[átutalás]]></fizmod>
+    <penznem><![CDATA[Ft]]></penznem>
+    <szamlaNyelve><![CDATA[hu]]></szamlaNyelve>
+    <eusAfa><![CDATA[false]]></eusAfa>
+    <szamlaSablon><![CDATA[SzlaMost]]></szamlaSablon>
+  </fejlec>
+  <elado/>
+  <vevo>
+    <nev><![CDATA[Kovács Pista]]></nev>
+    <orszag/>
+    <irsz><![CDATA[6000]]></irsz>
+    <telepules><![CDATA[cwacca]]></telepules>
+    <cim><![CDATA[cwawcw 21]]></cim>
+    <sendEmail><![CDATA[true]]></sendEmail>
+  </vevo>
+  <fuvarlevel/>
+  <tetelek>
+    <tetel>
+      <megnevezes><![CDATA[Bock borvacsora a Spaletta Étteremben!]]></megnevezes>
+      <mennyiseg><![CDATA[1.0]]></mennyiseg>
+      <mennyisegiEgyseg><![CDATA[db]]></mennyisegiEgyseg>
+      <nettoEgysegar><![CDATA[10000.0]]></nettoEgysegar>
+      <afakulcs><![CDATA[27]]></afakulcs>
+      <nettoErtek><![CDATA[10000.0]]></nettoErtek>
+      <afaErtek><![CDATA[2700.0]]></afaErtek>
+      <bruttoErtek><![CDATA[12700.0]]></bruttoErtek>
+    </tetel>
+  </tetelek>
+</xmlszamla>

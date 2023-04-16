@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmlszamla xmlns="http://www.szamlazz.hu/xmlszamla" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.szamlazz.hu/szamla/xmlszamla http://www.szamlazz.hu/szamla/docs/xsds/agent/xmlszamla.xsd">
+  <beallitasok>
+    <szamlaagentkulcs><![CDATA[unjd4fpyfnz3unjd4fntm4wvunjd4frtmp2eunjd4f]]></szamlaagentkulcs>
+    <eszamla><![CDATA[true]]></eszamla>
+    <szamlaLetoltes><![CDATA[true]]></szamlaLetoltes>
+    <szamlaLetoltesPld><![CDATA[1]]></szamlaLetoltesPld>
+    <valaszVerzio><![CDATA[1]]></valaszVerzio>
+    <aggregator/>
+  </beallitasok>
+  <fejlec>
+    <keltDatum><![CDATA[2022-12-06]]></keltDatum>
+    <teljesitesDatum><![CDATA[2022-12-06]]></teljesitesDatum>
+    <fizetesiHataridoDatum><![CDATA[2022-12-06]]></fizetesiHataridoDatum>
+    <fizmod><![CDATA[bankkártya]]></fizmod>
+    <penznem><![CDATA[Ft]]></penznem>
+    <szamlaNyelve><![CDATA[hu]]></szamlaNyelve>
+    <elolegszamla><![CDATA[true]]></elolegszamla>
+    <fizetve><![CDATA[true]]></fizetve>
+    <eusAfa><![CDATA[false]]></eusAfa>
+    <szamlaSablon><![CDATA[SzlaMost]]></szamlaSablon>
+  </fejlec>
+  <elado/>
+  <vevo>
+    <nev><![CDATA[Molnár Diána]]></nev>
+    <orszag/>
+    <irsz><![CDATA[6000]]></irsz>
+    <telepules><![CDATA[Kecskemét]]></telepules>
+    <cim><![CDATA[Kurucz krt. 37]]></cim>
+    <sendEmail><![CDATA[true]]></sendEmail>
+  </vevo>
+  <fuvarlevel/>
+  <tetelek>
+    <tetel>
+      <megnevezes><![CDATA[Spaletta Színházi Est - DANTE: POKOL Gyabronka József előadásában !]]></megnevezes>
+      <mennyiseg><![CDATA[1.0]]></mennyiseg>
+      <mennyisegiEgyseg><![CDATA[db]]></mennyisegiEgyseg>
+      <nettoEgysegar><![CDATA[5511.811023622]]></nettoEgysegar>
+      <afakulcs><![CDATA[27]]></afakulcs>
+      <nettoErtek><![CDATA[5511.811023622]]></nettoErtek>
+      <afaErtek><![CDATA[1488.188976378]]></afaErtek>
+      <bruttoErtek><![CDATA[7000.0]]></bruttoErtek>
+    </tetel>
+  </tetelek>
+</xmlszamla>

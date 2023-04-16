@@ -119,8 +119,15 @@ class PaymentController extends Controller
             'order_ref' => $trx->returnData['orderRef']
         ]);
 
-        return redirect()->to($trx->returnData['paymentUrl'])
-            ->header('X-Redirect-To', $trx->returnData['paymentUrl']);
+        return response($trx->returnData['paymentUrl']);
+
+        // return redirect()->to($trx->returnData['paymentUrl']);
+        // ->header('X-Redirect-To', $trx->returnData['paymentUrl'])
+        // ->header('Access-Control-Allow-Origin', '*')
+        // ->header('Access-Control-Allow-Methods', '*')
+        // ->header('Access-Control-Allow-Credentials', true)
+        // ->header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type,X-Token-Auth,Authorization')
+        // ->header('Accept', 'application/json');
     }
 
     public function back()
