@@ -25,7 +25,7 @@ return [
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => ['X-Inertia-Location', 'X-Redirect-To'],
 
     'max_age' => 0,
 

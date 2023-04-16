@@ -24,6 +24,7 @@ Route::get('get-medical-examinations/{id}', [AppointmentController::class, 'getE
 Route::get('get-consultations/{userId}/{medicalExamination}', [AppointmentController::class, 'getConsultations']);
 Route::get('get-appointments/{userId}/{medicalExaminationId}/{day}', [AppointmentController::class, 'getAppointments']);
 Route::post('personal-details-validation', [AppointmentController::class, 'personalDetailsValidation']);
+Route::post('reservation', [AppointmentController::class, 'reservation']);
 Route::post('payment-start', [PaymentController::class, 'start']);
 Route::get('payment-back', [PaymentController::class, 'back'])
     ->name('api.payment.back');

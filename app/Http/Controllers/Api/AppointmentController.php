@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PersonalDetailsRequest;
+use App\Models\Applicant;
 use App\Models\Appointment;
 use App\Models\Consultation;
 use App\Models\DoctorMedicalExamination;
@@ -76,5 +77,20 @@ class AppointmentController extends Controller
     public function personalDetailsValidation(PersonalDetailsRequest $request)
     {
         return response($request->all());
+    }
+
+    public function reservation(Request $request)
+    {
+
+        $data = $request->all();
+        $data['personalDetails']['social_security_number'] = $data['personalDetails']['socialSecurityNumber'];
+        $applicant = Applicant::create($data['personalDetails']);
+        $appointment = Appointment::find($data['appointment']['id']);
+        $appointment->update(['medical_examination_id' => $data['examination']['medical_examination']['id']]);
+
+        return redirect()->route('payment.start', [
+            'applicant' => $applicant,
+            'appointment' => $appointment
+        ]);
     }
 }

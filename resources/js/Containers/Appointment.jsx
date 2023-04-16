@@ -117,7 +117,7 @@ const AppointmentController = ({ doctors, doctor, medicalExaminations }) => {
 
     const submit = useCallback(() => {
         try {
-            axios.post("/api/payment-start", data);
+            axios.post("/api/reservation", data);
         } catch (err) {
             console.log(err);
         }
