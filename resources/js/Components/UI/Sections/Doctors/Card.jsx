@@ -1,20 +1,24 @@
 const people = [
     {
+        id: 11,
         name: "Dr. Csőszi Tibor",
         title: "Főorvos",
         imageUrl: "/img/doctors/dr-csoszi-tibor.jpg",
     },
     {
+        id: 27,
         name: "Dr. Dubravcsik Zsolt",
         title: "Főorvos",
         imageUrl: "/img/doctors/dr-dubravcsik-zsolt.jpg",
     },
     {
+        id: 25,
         name: "Dr. Velkei Tamás",
         title: "Főorvos",
         imageUrl: "/img/doctors/dr-velkei-tamas.jpg",
     },
     {
+        id: 28,
         name: "Dr. Novák Péter",
         title: "Főorvos",
         imageUrl: "/img/doctors/avatar.png",
@@ -57,7 +61,7 @@ const DoctorCards = () => {
                                     Bemutatkozás
                                 </button> */}
                                 <a
-                                    href="#"
+                                    href={`/online-bejelentkezes/` + person.id}
                                     className="uppercase relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900 hover:text-blue-500"
                                 >
                                     Bejelentkezés

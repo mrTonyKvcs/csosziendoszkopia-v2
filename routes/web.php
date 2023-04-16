@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [PagesController::class, 'index'])->name('pages.index');
+
+
+Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

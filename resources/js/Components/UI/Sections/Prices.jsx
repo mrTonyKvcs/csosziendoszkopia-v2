@@ -4,7 +4,7 @@ export const PricesList = ({ items }) => {
             {items.map((item) => (
                 <div
                     key={item.name}
-                    className="mt-5 md:mt-4 w-full md:w-1/2 lg:w-1/3 xl:1/4 flex flex-col divide-y divide-gray-200 bg-white text-center shadow"
+                    className="mt-5 md:mt-4 w-full md:w-1/2 lg:w-1/3 xl:1/4 flex flex-col divide-y divide-gray-200 bg-white text-center shadow-md"
                 >
                     <div className="flex flex-col p-8 h-270 items-center justify-center">
                         <img

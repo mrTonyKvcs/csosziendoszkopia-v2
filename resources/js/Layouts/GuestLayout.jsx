@@ -1,3 +1,4 @@
+import Footer from "@/Components/UI/Footer";
 import Navbar from "@/Components/UI/Navbar";
 
 export default function Guest({ children }) {
@@ -5,6 +6,7 @@ export default function Guest({ children }) {
         <>
             <Navbar />
             <main>{children}</main>
+            <Footer />
         </>
     );
 }
