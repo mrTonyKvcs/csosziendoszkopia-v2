@@ -61,4 +61,11 @@ class User extends Authenticatable
     {
         return $query->where('role', 'doctor');
     }
+
+    public function scopeActiveConsultations($query)
+    {
+        return $query->whereHas('consultations', function ($query) {
+            $query->where('day', '>=', now()->format('Y-m-d'));
+        });
+    }
 }

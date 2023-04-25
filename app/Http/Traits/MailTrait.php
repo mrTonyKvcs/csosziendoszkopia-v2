@@ -16,11 +16,10 @@ trait MailTrait
         $applicant->startAt = $appointment->start_at;
 
         $applicant->invoiceNumber = $invoiceNumber;
-
         Mail::send('emails.new-applicant', $applicant->toArray(), function ($message) use ($appointment) {
             // $message->to([$appointment->consultation->user->email])
             // $message->to('csosziendoszkopia@gmail.com')
-            $message->to('attila.kovacs92@gmail.com')
+            $message->to(config('site.mail.to_address'))
                     ->subject('Új online bejelentkezes: ' .  $appointment->applicant->social_security_number);
         });
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\ConsultationController;
 use App\Http\Controllers\Api\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -29,13 +30,14 @@ Route::post('payment-start', [PaymentController::class, 'start']);
 Route::get('payment-back', [PaymentController::class, 'back'])
     ->name('api.payment.back');
 
-// Route::post('payment-ipn', [PaymentController::class, 'ipn'])
-//     ->name('payment.ipn');
+Route::post('payment-ipn', [PaymentController::class, 'ipn'])
+    ->name('api.payment.ipn');
 
-// Route::get('sikertelen-fizetes/{payment}', [
-//     'as' => 'api.payment.error',
-//     'uses' => [PaymentController::class, 'error']
-// ]);
+Route::get('sikertelen-fizetes/{payment}', [PaymentController::class, 'unsuccessful'])->name('api.payment.unsuccessful');
 
-// Route::get('online-bejelentkezes-befejezese/{appointment}', [PaymentController::class, 'success'])
-//     ->name('api.payments.greeting');
+Route::get('online-bejelentkezes-befejezese/{appointment}', [PaymentController::class, 'successful'])
+    ->name('api.payment.successful');
+
+Route::prefix('consultations')->group(function () {
+    Route::post('create', [ConsultationController::class, 'store']);
+});

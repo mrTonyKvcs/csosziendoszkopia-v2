@@ -11,3 +11,11 @@ export const getConsultationName = (consultation) => {
         consultation.close.slice(0, -3)
     );
 };
+
+export const getAppointmentName = (appointment) => {
+    return (
+        appointment.start_at.slice(0, -3) +
+        "-" +
+        appointment.end_at.slice(0, -3)
+    );
+};

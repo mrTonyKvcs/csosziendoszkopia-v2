@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ApplicantsController;
+use App\Http\Controllers\Admin\ConsultationsController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PaymentController;
@@ -26,9 +29,13 @@ Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 
 Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/rendelesek', [ConsultationsController::class, 'index'])->name('admin.consultations.index');
+    Route::get('/jelentkezok', [ApplicantsController::class, 'index'])->name('admin.consultations.index');
+})->middleware(['auth']);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

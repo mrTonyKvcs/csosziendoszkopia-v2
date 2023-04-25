@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Inertia\Inertia;
 use Laravel\SerializableClosure\Signers\Hmac;
 use PhpParser\Node\Stmt\TryCatch;
 use SimplePay\SimplePayStart;
@@ -159,8 +160,7 @@ class PaymentController extends Controller
 
             $this->sendMessages($appointment, $appointment->applicant, $invoiceNumber);
 
-            dd('SUCCESS', $appointment);
-            return redirect()->route('payments.greeting', $appointment->id);
+            return redirect()->route('api.payment.successful', $appointment->id);
         } else {
             $payment = Payment::query()
                 ->where('transaction_id', $result['t'])
@@ -188,8 +188,7 @@ class PaymentController extends Controller
                     break;
             }
 
-            dd($payment);
-            return redirect()->route('pages.payment-error', $payment->id);
+            return redirect()->route('api.payment.unsuccessful', $payment->id);
         }
     }
 
@@ -213,18 +212,18 @@ class PaymentController extends Controller
         exit;
     }
 
-    public function paymentError(Payment $payment)
+    public function unsuccessful(Payment $payment)
     {
-        dd($payment);
-        return view('payments.error', [ 'transaction' => $payment]);
+        return Inertia::render('Payment/Error', [
+            'transaction' => $payment
+        ]);
     }
 
-    public function greeting(Appointment $appointment)
+    public function successful(Appointment $appointment)
     {
         $transactionId = $appointment->payment->transaction_id;
 
-        dd($appointment);
-        return view('payments.greeting', [
+        return Inertia::render('Payment/Successful', [
             'appointment'   => $appointment,
             'transactionId'      => $transactionId
         ]);

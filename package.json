@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@heroicons/react": "^2.0.17",
+        "moment": "^2.29.4",
         "prop-types": "^15.8.1",
         "styled-components": "^5.3.9"
     }

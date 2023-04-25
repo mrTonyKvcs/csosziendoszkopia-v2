@@ -128,7 +128,7 @@ const AppointmentController = ({ doctors, doctor, medicalExaminations }) => {
 
     return (
         <>
-            <Hero />
+            <Hero text="Online Időpontfoglalás" />
             <div className="flex justify-center min-h-96">
                 <div className="w-full p-5 md:p-20 md:w-3/4">
                     <section className="mb-10 md:mb-20">

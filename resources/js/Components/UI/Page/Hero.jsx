@@ -1,10 +1,10 @@
-const Hero = () => {
+const Hero = ({ text }) => {
     return (
-        <div className="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+        <div className="relative px-6 py-24 overflow-hidden isolate sm:py-32 lg:px-8">
             <img
                 src="/img/counter.jpg"
                 alt=""
-                className="absolute inset-0 -z-10 h-full w-full object-cover"
+                className="absolute inset-0 object-cover w-full h-full -z-10"
             />
             <div
                 className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
@@ -30,10 +30,8 @@ const Hero = () => {
                     }}
                 />
             </div>
-            <div className="mx-auto max-w-2xl text-center">
-                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                    Online Időpontfoglalás
-                </h2>
+            <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{text}</h2>
             </div>
         </div>
     );

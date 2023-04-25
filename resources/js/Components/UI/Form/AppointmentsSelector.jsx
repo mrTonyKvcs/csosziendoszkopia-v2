@@ -1,16 +1,8 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { classNames } from "@/utils";
+import { classNames, getAppointmentName } from "@/utils";
 import Warning from "../Alerts/Warning";
-
-const getAppointmentName = (appointment) => {
-    return (
-        appointment.start_at.slice(0, -3) +
-        "-" +
-        appointment.end_at.slice(0, -3)
-    );
-};
 
 const AppointmentSelector = ({ selected, setSelected, appointments }) => {
     return (
