@@ -11,6 +11,7 @@ class AppointmentController extends Controller
 {
     public function index(Request $request, User $user)
     {
+        $config = config('site.medical-examinations');
         $doctors = User::doctors()->get();
         $doctor = User::find($user->id);
         if ($doctor) {
@@ -22,6 +23,7 @@ class AppointmentController extends Controller
         }
 
         return Inertia::render('Appointment/Index', [
+            'config' => $config,
             'doctors' => $doctors,
             'doctor' => $doctor,
             'medicalExaminations' => isset($examinations) ? $examinations : null

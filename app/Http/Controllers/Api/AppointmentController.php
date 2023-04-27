@@ -9,10 +9,24 @@ use App\Models\Appointment;
 use App\Models\Consultation;
 use App\Models\DoctorMedicalExamination;
 use App\Models\MedicalExamination;
+use App\Models\Payment;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
+    public function delete(Appointment $appointment)
+    {
+        $payment = Payment::query()
+            ->where('paymentable_id', $appointment->id)
+            ->where('applicant_id', $appointment->applicant->id)
+            ->update(['status' => Status::DELETE]);
+
+        $appointment->update(['medical_examination_id' => null, 'applicant_id' => null]);
+
+        return response()->json(['success' => true]);
+    }
+
     public function getExaminations($id)
     {
         $examinations = DoctorMedicalExamination::query()

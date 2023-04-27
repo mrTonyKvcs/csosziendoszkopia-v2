@@ -8,6 +8,8 @@ use App\Models\Appointment;
 use App\Models\Consultation;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Str;
 
 class ConsultationController extends Controller
 {
@@ -27,5 +29,10 @@ class ConsultationController extends Controller
         $data = DoctorResource::collection($doctors);
 
         return response($data);
+    }
+
+    public function export(Request $request)
+    {
+        return Excel::download(new ConsultationExport($request->appointments), Str::slug($request->day) . '.xlsx');
     }
 }

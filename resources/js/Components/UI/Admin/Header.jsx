@@ -1,5 +1,3 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
-
 const Header = ({ title, setOpen = null }) => {
     return (
         <div className="py-5 mb-10 bg-gray-100">
@@ -33,12 +31,12 @@ const Header = ({ title, setOpen = null }) => {
             </div>
             <div className="px-4 mt-2 md:flex md:items-center md:justify-between sm:px-6 lg:px-8">
                 <div className="flex-1 min-w-0">
-                    <h2 className="text-2xl font-medium leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+                    <h2 className="text-2xl font-medium leading-7 text-gray-600 sm:truncate sm:text-3xl sm:tracking-tight">
                         {title}
                     </h2>
                 </div>
-                {setOpen !== null && (
-                    <div className="flex flex-shrink-0 mt-4 md:ml-4 md:mt-0">
+                <div className="flex flex-shrink-0 mt-4 md:ml-4 md:mt-0">
+                    {setOpen !== null && (
                         <button
                             onClick={() => setOpen(true)}
                             type="button"
@@ -46,8 +44,8 @@ const Header = ({ title, setOpen = null }) => {
                         >
                             Új létrehozása
                         </button>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );

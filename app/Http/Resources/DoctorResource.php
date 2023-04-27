@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Appointment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -30,32 +31,23 @@ class DoctorResource extends JsonResource
                 ->map(function ($groupedConsultations, $key) {
                     $minOpen = $groupedConsultations->min('open');
                     $minClose = $groupedConsultations->max('close');
+                    $appointments = Appointment::query()
+                        ->whereHas('consultation', function ($q) use ($key) {
+                            $q
+                                ->where('user_id', $this->id)
+                                ->where('day', $key);
+                        })
+                        ->orderBy('start_at')
+                        ->get();
+
                     return [
+                        'doctorId' => $this->id,
                         'day' => $key,
                         'open' => $minOpen,
                         'close' => $minClose,
+                        'appointments' => $appointments
                     ];
                 })
-                // ->map(function ($consultation) {
-                //     $hasNonEmptyAppointment = $consultation->appointments->filter(function ($appointment) {
-                //         return !empty($appointment->applicant_id) && !empty($appointment->examination_id);
-                //     })->isNotEmpty();
-
-                //     return [
-                //         'type' => $consultation->type->name,
-                //         'office' => $consultation->office->name,
-                //         'day' => $consultation->day,
-                //         'open' => $consultation->open,
-                //         'close' => $consultation->close,
-                //         'isFull' => $hasNonEmptyAppointment,
-                //         'appointments' => $consultation->appointments->map(function ($appointment) {
-                //             return [
-                //                 'start_at' => $appointment->start_at,
-                //                 'end_at' => $appointment->end_at
-                //             ];
-                //         })
-                //     ];
-                // })
         ];
     }
 }

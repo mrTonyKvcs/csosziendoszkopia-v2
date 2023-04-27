@@ -4,7 +4,7 @@ import Guest from "@/Layouts/GuestLayout";
 import Loading from "@/Components/UI/Loading";
 import AppointmentController from "@/Containers/Appointment";
 
-const Index = ({ doctors, doctor, medicalExaminations }) => {
+const Index = ({ config, doctors, doctor, medicalExaminations }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -21,6 +21,7 @@ const Index = ({ doctors, doctor, medicalExaminations }) => {
                 <Guest>
                     <Head title="Időpontfoglalás és fizetés" />
                     <AppointmentController
+                        config={config}
                         doctors={doctors}
                         doctor={doctor}
                         medicalExaminations={medicalExaminations}

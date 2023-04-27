@@ -40,4 +40,8 @@ Route::get('online-bejelentkezes-befejezese/{appointment}', [PaymentController::
 
 Route::prefix('consultations')->group(function () {
     Route::post('create', [ConsultationController::class, 'store']);
+    Route::post('export', [ConsultationController::class, 'export']);
+});
+Route::prefix('appointments')->group(function () {
+    Route::delete('delete/{appointment}', [AppointmentController::class, 'delete']);
 });

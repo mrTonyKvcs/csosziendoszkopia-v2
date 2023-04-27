@@ -2,7 +2,15 @@ import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const SlideOver = ({ children, open, setOpen, title, action, disabled }) => {
+const SlideOver = ({
+    children,
+    open,
+    setOpen,
+    title,
+    action,
+    disabled,
+    hideSaveButton = false,
+}) => {
     return (
         <Transition.Root show={open} as={Fragment}>
             <Dialog
@@ -73,14 +81,17 @@ const SlideOver = ({ children, open, setOpen, title, action, disabled }) => {
                                             >
                                                 Mégsem
                                             </button>
-                                            <button
-                                                disabled={disabled}
-                                                onClick={action}
-                                                type="button"
-                                                className="inline-flex justify-center px-3 py-2 ml-4 text-sm font-semibold text-white bg-blue-600 rounded-sm shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                                            >
-                                                Mentés
-                                            </button>
+                                            {hideSaveButton ||
+                                                (action !== null && (
+                                                    <button
+                                                        disabled={disabled}
+                                                        onClick={action}
+                                                        type="button"
+                                                        className="inline-flex justify-center px-3 py-2 ml-4 text-sm font-semibold text-white bg-blue-600 rounded-sm shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                                                    >
+                                                        Mentés
+                                                    </button>
+                                                ))}
                                         </div>
                                     </form>
                                 </Dialog.Panel>

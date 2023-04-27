@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -38,5 +39,13 @@ class Appointment extends Model
     public function payment()
     {
         return $this->morphOne(Payment::class, 'paymentable');
+    }
+
+    public function getTimeAttribute()
+    {
+        $startAt = Carbon::parse($this->start_at)->format('H:i');
+        $endAt = Carbon::parse($this->end_at)->format('H:i');
+
+        return $startAt . '-' . $endAt;
     }
 }

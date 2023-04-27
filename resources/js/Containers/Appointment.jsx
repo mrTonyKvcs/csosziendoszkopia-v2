@@ -12,7 +12,12 @@ import useAppointment from "@/hooks/useAppointment";
 import PersonalDetails from "@/Components/UI/Form/PesonalDetails";
 import LastStep from "@/Components/UI/Step/LastStep";
 
-const AppointmentController = ({ doctors, doctor, medicalExaminations }) => {
+const AppointmentController = ({
+    config,
+    doctors,
+    doctor,
+    medicalExaminations,
+}) => {
     const [data, setData] = useState(null);
     const { activeStep, toPrevStep, toNextStep } = useSteps();
     const {
@@ -126,6 +131,8 @@ const AppointmentController = ({ doctors, doctor, medicalExaminations }) => {
             });
     });
 
+    console.log(config, "config", selectedExamination);
+
     return (
         <>
             <Hero text="Online Időpontfoglalás" />
@@ -170,6 +177,35 @@ const AppointmentController = ({ doctors, doctor, medicalExaminations }) => {
                                                         handleChangeExamination
                                                     }
                                                 />
+                                                {selectedExamination && (
+                                                    <div className="p-3 mt-5 -mx-4 md:p-5 ring-1 ring-gray-300 sm:mx-0 ">
+                                                        <p className="mb-5 text-md">
+                                                            {
+                                                                config[
+                                                                    selectedExamination
+                                                                        .medical_examination
+                                                                        ?.slug
+                                                                ]?.text
+                                                            }
+                                                        </p>
+                                                        {Object.entries(
+                                                            config[
+                                                                selectedExamination
+                                                                    .medical_examination
+                                                                    .slug
+                                                            ].extra
+                                                        ).map(
+                                                            ([key, value]) => (
+                                                                <p className="text-md">
+                                                                    <strong>
+                                                                        {key}:{" "}
+                                                                    </strong>
+                                                                    {value}
+                                                                </p>
+                                                            )
+                                                        )}
+                                                    </div>
+                                                )}
                                             </div>
                                         )}
 
