@@ -13,6 +13,7 @@ import {
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
+    ArrowLeftOnRectangleIcon,
     ChevronDownIcon,
     MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
@@ -220,16 +221,17 @@ export default function AuthenticatedLayout({ children }) {
                                     </ul>
                                 </li>
                                 <li className="mt-auto">
-                                    <a
-                                        href="#"
+                                    <NavLink
+                                        method="post"
+                                        href={route("logout")}
                                         className="flex p-2 -mx-2 text-sm font-semibold leading-6 text-gray-400 rounded-md group gap-x-3 hover:bg-gray-800 hover:text-white"
                                     >
-                                        <Cog6ToothIcon
+                                        <ArrowLeftOnRectangleIcon
                                             className="w-6 h-6 shrink-0"
                                             aria-hidden="true"
                                         />
-                                        Settings
-                                    </a>
+                                        Kijelentkezés
+                                    </NavLink>
                                 </li>
                             </ul>
                         </nav>
@@ -278,7 +280,7 @@ export default function AuthenticatedLayout({ children }) {
                                 />
                             </form>
                             <div className="flex items-center gap-x-4 lg:gap-x-6">
-                                <button
+                                {/* <button
                                     type="button"
                                     className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500"
                                 >
@@ -289,7 +291,7 @@ export default function AuthenticatedLayout({ children }) {
                                         className="w-6 h-6"
                                         aria-hidden="true"
                                     />
-                                </button>
+                                </button> */}
 
                                 {/* Separator */}
                                 <div
@@ -298,7 +300,7 @@ export default function AuthenticatedLayout({ children }) {
                                 />
 
                                 {/* Profile dropdown */}
-                                <Menu as="div" className="relative">
+                                {/* <Menu as="div" className="relative">
                                     <Menu.Button className="-m-1.5 flex items-center p-1.5">
                                         <span className="sr-only">
                                             Open user menu
@@ -350,7 +352,7 @@ export default function AuthenticatedLayout({ children }) {
                                             ))}
                                         </Menu.Items>
                                     </Transition>
-                                </Menu>
+                                </Menu> */}
                             </div>
                         </div>
                     </div>
