@@ -34,7 +34,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/rendelesek', [ConsultationsController::class, 'index'])->name('admin.consultations.index');
     Route::get('/rendelesek/{doctorId}/{day}', [ConsultationsController::class, 'show'])->name('admin.consultations.show');
     Route::get('/jelentkezok', [ApplicantsController::class, 'index'])->name('admin.consultations.index');
-})->middleware(['auth']);
+});
 
 
 
