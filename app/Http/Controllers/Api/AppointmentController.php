@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PersonalDetailsRequest;
+use App\Http\Resources\AppointmentResource;
 use App\Models\Applicant;
 use App\Models\Appointment;
 use App\Models\Consultation;
@@ -106,5 +107,43 @@ class AppointmentController extends Controller
             'applicant' => $applicant,
             'appointment' => $appointment
         ]);
+    }
+
+    public function setReservation(Request $request)
+    {
+        $appointment = Appointment::find($request->appointmentId);
+        $appointment->update(['medical_examination_id' => $request->medicalExaminationId]);
+        return response(200);
+    }
+
+    public function adminReservation(Request $request)
+    {
+        $applicant = Applicant::create([
+            'name' => $request->applicantName,
+            'email' => $request->applicantEmail,
+            'phone' => $request->applicantPhone
+        ]);
+
+        $appointment = Appointment::find($request->appointmentId);
+        $appointment->update([
+            'medical_examination_id' => $request->medicalExaminationId,
+            'applicant_id' => $applicant->id,
+        ]);
+
+        $appointment->payment()->create([
+            'status' => Status::CASH,
+            'transaction_id' => 0000000,
+            'order_ref' => 000000000,
+            'applicant_id' => $applicant->id
+        ]);
+        $appointments = Appointment::query()
+                    ->whereHas('consultation', function ($q) use ($appointment) {
+                        $q
+                            ->where('user_id', $appointment->consultation->user_id)
+                            ->where('day', $appointment->consultation->day);
+                    })
+                    ->get();
+
+        return response(AppointmentResource::collection($appointments));
     }
 }

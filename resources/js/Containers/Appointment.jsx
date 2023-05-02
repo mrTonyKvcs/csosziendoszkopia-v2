@@ -19,7 +19,7 @@ const AppointmentController = ({
     medicalExaminations,
 }) => {
     const [data, setData] = useState(null);
-    const { activeStep, toPrevStep, toNextStep } = useSteps();
+    const [activeStep, setActiveStep] = useState(1);
     const {
         appointments,
         setAppontiments,
@@ -111,7 +111,8 @@ const AppointmentController = ({
             consultation: selectedConsultation,
             appointment: selectedAppointment,
         });
-        toNextStep();
+        setActiveStep(2);
+        // toNextStep();
     }, [
         data,
         selectedDoctor,
@@ -196,7 +197,10 @@ const AppointmentController = ({
                                                             ].extra
                                                         ).map(
                                                             ([key, value]) => (
-                                                                <p className="text-md">
+                                                                <p
+                                                                    key={key}
+                                                                    className="text-md"
+                                                                >
                                                                     <strong>
                                                                         {key}:{" "}
                                                                     </strong>
@@ -265,18 +269,17 @@ const AppointmentController = ({
                         {activeStep === 2 && (
                             <>
                                 <PersonalDetails
-                                    toPrevStep={toPrevStep}
-                                    toNextStep={toNextStep}
                                     addPersonalDetails={setData}
+                                    setActiveStep={setActiveStep}
                                 />
                             </>
                         )}
                         {activeStep === 3 && (
                             <>
                                 <LastStep
-                                    toPrevStep={toPrevStep}
                                     data={data}
                                     submit={submit}
+                                    setActiveStep={setActiveStep}
                                 />
                             </>
                         )}

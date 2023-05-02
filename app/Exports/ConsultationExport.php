@@ -2,17 +2,21 @@
 
 namespace App\Exports;
 
+use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
 
-class ConsultationExport implements FromCollection, WithMapping, WithHeadings
+class ConsultationExport implements FromCollection, WithMapping, WithHeadings, WithColumnWidths, WithStyles
 {
     protected $data;
 
-    public function __construct(object $data)
+    public function __construct($appointments)
     {
-        $this->data = $data;
+        $this->data = $appointments;
     }
 
     /**
@@ -24,9 +28,56 @@ class ConsultationExport implements FromCollection, WithMapping, WithHeadings
             'Vizsgálat kezdete',
             'Vizsgálat típusa',
             'Páciens neve',
-            'Taj-száma',
             'Telefonszám',
-            // 'Kontroll vizsgálat'
+            'Taj-száma',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function columnWidths(): array
+    {
+        return [
+            'A' => 15.0,
+            'B' => 15.0,
+            'C' => 15.0,
+            'D' => 15.0,
+            'E' => 15.0,
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function styles($row): array
+    {
+        return [
+            'A' => [
+                'alignment' => [
+                    'horizontal' => Alignment::HORIZONTAL_CENTER,
+                ],
+            ],
+            'B' => [
+                'alignment' => [
+                    'horizontal' => Alignment::HORIZONTAL_CENTER,
+                ],
+            ],
+            'C' => [
+                'alignment' => [
+                    'horizontal' => Alignment::HORIZONTAL_CENTER,
+                ],
+            ],
+            'D' => [
+                'alignment' => [
+                    'horizontal' => Alignment::HORIZONTAL_CENTER,
+                ],
+            ],
+            'E' => [
+                'alignment' => [
+                    'horizontal' => Alignment::HORIZONTAL_CENTER,
+                ],
+            ],
         ];
     }
 
@@ -35,7 +86,7 @@ class ConsultationExport implements FromCollection, WithMapping, WithHeadings
     */
     public function collection()
     {
-        return $this->data;
+        return collect($this->data);
     }
 
     /**
@@ -44,12 +95,11 @@ class ConsultationExport implements FromCollection, WithMapping, WithHeadings
     public function map($item): array
     {
         return [
-            $item->start_at,
-            $item->medicalExamination->name ?? null,
-            $item->applicant->name ?? null,
-            $item->applicant->social_security_number ?? null,
-            $item->applicant->phone ?? null,
-            // $this->checkControlExamination($item->id ?? null, $item->applicant->id ?? null)
+            Carbon::parse($item['start_at'])->format('H:i'),
+            $item['medical_examination']['name'] ?? null,
+            $item['applicant']['name'] ?? null,
+            $item['applicant']['phone'] ?? null,
+            $item['applicant']['social_security_number'] ?? null,
         ];
     }
 }

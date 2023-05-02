@@ -1,7 +1,9 @@
+import ApplicantTable from "@/Components/UI/Admin/Applicant/ApplicantTable";
+import Header from "@/Components/UI/Admin/Header";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
-const Index = ({ auth }) => {
+const Index = ({ auth, applicants }) => {
     return (
         <AuthenticatedLayout
             header={
@@ -10,12 +12,13 @@ const Index = ({ auth }) => {
                 </h2>
             }
         >
-            <Head title="Rendelések" />
+            <Head title="Páciensek" />
+            <Header title="Páciensek" deleteAction={null} />
 
-            <div className="py-12">
+            <div className="">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900">Applicants</div>
+                        <ApplicantTable data={applicants} />
                     </div>
                 </div>
             </div>

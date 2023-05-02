@@ -1,17 +1,20 @@
 import { useState, useCallback } from "react";
 
-const useSteps = () => {
-    const [activeStep, setActiveStep] = useState(1);
-
+const useSteps = ({ activeStep }) => {
     const toPrevStep = useCallback(() => {
+        console.log("prev before", activeStep);
         setActiveStep(activeStep - 1);
+        activeStep > 1 ? setActiveStep(activeStep - 1) : null;
+        console.log("prev after", activeStep);
     }, [activeStep]);
 
     const toNextStep = useCallback(() => {
-        setActiveStep(activeStep + 1);
+        console.log("next before", activeStep);
+        activeStep < 3 ? setActiveStep(activeStep + 1) : null;
+        console.log("next after", activeStep);
     }, [activeStep]);
 
-    return { activeStep, toNextStep, toPrevStep };
+    return { toNextStep, toPrevStep };
 };
 
 export default useSteps;

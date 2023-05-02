@@ -14,5 +14,6 @@ class Status extends Model
     public const CANCEL_PAYMENT = 'CANCEL';
     public const TIMEOUT_PAYMENT = 'TIMEOUT';
     public const FAIL_PAYMENT = 'FAIL';
+    public const CASH = 'CASH';
     public const DELETE = 'DELETE';
 }

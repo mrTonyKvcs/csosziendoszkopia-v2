@@ -7,7 +7,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import Checkbox from "@/Components/Checkbox";
 
-const PersonalDetails = ({ toPrevStep, toNextStep, addPersonalDetails }) => {
+const PersonalDetails = ({ addPersonalDetails, setActiveStep }) => {
     const {
         data,
         setData,
@@ -36,7 +36,7 @@ const PersonalDetails = ({ toPrevStep, toNextStep, addPersonalDetails }) => {
                 addPersonalDetails((prevData) => {
                     return { ...prevData, personalDetails: response.data };
                 });
-                toNextStep();
+                setActiveStep(3);
             })
             .catch((error) => {
                 setError(error.response.data.errors);
@@ -231,7 +231,7 @@ const PersonalDetails = ({ toPrevStep, toNextStep, addPersonalDetails }) => {
 
             <div className="flex flex-col-reverse mt-5 md:flex-row">
                 <button
-                    onClick={toPrevStep}
+                    onClick={() => setActiveStep(1)}
                     type="button"
                     className="mt-5 md:mt-0 uppercase relative inline-flex items-center gap-x-1.5 mr-3 rounded-sm bg-white-600 px-3 py-2 text-sm md:text-md font-semibold text-blue-600 shadow-sm hover:bg-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >

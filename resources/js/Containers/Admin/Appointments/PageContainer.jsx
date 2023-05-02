@@ -8,19 +8,22 @@ import AppointmentDetailsContainer from "./AppointmentDetailsContainer";
 import axios from "axios";
 import NotificationsSimple from "@/Components/UI/Notifications/Simple";
 import DeleteConfirmModal from "@/Components/UI/Modals/DeleteConfirmModal";
+import { ArrowDownOnSquareIcon } from "@heroicons/react/24/outline";
 
-const AppointmentsPageContainer = ({ doctor, day, defaultAppointments }) => {
+const AppointmentsPageContainer = ({
+    doctor,
+    day,
+    defaultAppointments,
+    examinations,
+}) => {
     const [appointments, setAppointments] = useState(defaultAppointments);
     const [open, setOpen] = useState(false);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [appointment, setAppointment] = useState(null);
     const [showDeleteNotifications, setShowDeleteNotifications] =
         useState(false);
-    console.log(appointments);
-
-    const exportAppointments = useCallback(() => {
-        return true;
-    }, []);
+    const [showExportNotifications, setShowExportNotifications] =
+        useState(false);
 
     const deleteAppointment = useCallback(() => {
         axios
@@ -52,6 +55,36 @@ const AppointmentsPageContainer = ({ doctor, day, defaultAppointments }) => {
         console.log("deleted", appointment.id);
     }, [appointment]);
 
+    const exportConsultation = useCallback(async (appointments) => {
+        try {
+            const response = await axios.post(
+                "/api/consultations/export",
+                appointments,
+                {
+                    responseType: "blob",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            const fileBlob = response.data;
+            const url = window.URL.createObjectURL(new Blob([fileBlob]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", day + ".xlsx");
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+
+            setShowExportNotifications(true);
+            setTimeout(function () {
+                setShowExportNotifications(false);
+            }, 5000);
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
+
     return (
         <AuthenticatedLayout
             header={
@@ -65,14 +98,35 @@ const AppointmentsPageContainer = ({ doctor, day, defaultAppointments }) => {
                 title={`Időpontok (${doctor.name + " | " + day})`}
                 deleteAction={deleteAppointment}
             />
+            {showExportNotifications && (
+                <NotificationsSimple
+                    title="Sikeres exportálás"
+                    text="Az időpontokat sikeresen exportáltad."
+                    show={showExportNotifications}
+                    setShow={setShowExportNotifications}
+                />
+            )}
             <div className="">
-                <div className="px-4 sm:px-6 lg:px-8 w-80">
-                    <NavLink
-                        href="/admin/rendelesek"
-                        className="uppercase text-md"
+                <div className="flex flex-row justify-between px-4 sm:px-6 lg:px-8">
+                    <div className="w-80">
+                        <NavLink
+                            href="/admin/rendelesek"
+                            className="uppercase text-md"
+                        >
+                            vissza a Rendelésekhez
+                        </NavLink>
+                    </div>
+                    <button
+                        type="button"
+                        onClick={() => exportConsultation(appointments)}
+                        className="relative inline-flex items-center justify-end flex-1 w-0 pt-2 -mr-px text-sm font-semibold text-gray-900 border border-transparent rounded-bl-lg gap-x-3"
                     >
-                        vissza a Rendelésekhez
-                    </NavLink>
+                        <ArrowDownOnSquareIcon
+                            className="w-5 h-5 text-gray-400"
+                            aria-hidden="true"
+                        />
+                        Exportálás
+                    </button>
                 </div>
                 <AppointmentsTable
                     appointments={appointments}
@@ -83,7 +137,9 @@ const AppointmentsPageContainer = ({ doctor, day, defaultAppointments }) => {
                 <AppointmentDetailsContainer
                     open={open}
                     setOpen={setOpen}
+                    setAppointments={setAppointments}
                     appointment={appointment}
+                    allExaminations={examinations}
                 />
                 {showDeleteModal && (
                     <DeleteConfirmModal

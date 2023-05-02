@@ -37,6 +37,7 @@ class DoctorResource extends JsonResource
                                 ->where('user_id', $this->id)
                                 ->where('day', $key);
                         })
+                        ->with('applicant', 'medicalExamination', 'consultation')
                         ->orderBy('start_at')
                         ->get();
 

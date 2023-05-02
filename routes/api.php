@@ -43,5 +43,7 @@ Route::prefix('consultations')->group(function () {
     Route::post('export', [ConsultationController::class, 'export']);
 });
 Route::prefix('appointments')->group(function () {
+    Route::post('set-reservation', [AppointmentController::class, 'setReservation']);
+    Route::post('admin-reservation', [AppointmentController::class, 'adminReservation']);
     Route::delete('delete/{appointment}', [AppointmentController::class, 'delete']);
 });

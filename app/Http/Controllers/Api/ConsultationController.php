@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Exports\ConsultationExport;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DoctorResource;
 use App\Models\Appointment;
@@ -33,6 +34,15 @@ class ConsultationController extends Controller
 
     public function export(Request $request)
     {
-        return Excel::download(new ConsultationExport($request->appointments), Str::slug($request->day) . '.xlsx');
+        $fileName = Str::slug($request->day) . '.xlsx';
+        $export = new ConsultationExport($request->all());
+
+        return Excel::download($export, $fileName, null, [
+            'Cache-Control' => 'max-age=0, no-cache, must-revalidate',
+            'Pragma' => 'no-cache',
+            'Expires' => 'Fri, 01 Jan 1990 00:00:00 GMT',
+            'Content-Type' => 'application/vnd.ms-excel',
+            'Content-Disposition' => 'attachment; filename="' . $fileName . '"',
+        ]);
     }
 }

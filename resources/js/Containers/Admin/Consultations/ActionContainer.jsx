@@ -64,6 +64,7 @@ const ConsultationActionContainer = ({
                 setDoctor(null);
                 setTemplate(null);
                 reset();
+                location.reload();
             })
             .catch((error) => {
                 console.log(error);

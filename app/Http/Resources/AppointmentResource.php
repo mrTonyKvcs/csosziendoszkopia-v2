@@ -19,7 +19,11 @@ class AppointmentResource extends JsonResource
         return [
             'id' => $this->id,
             'time' => $this->time,
+            'start_at' => $this->start_at,
+            'end_at' => $this->end_at,
+            'medical_examination_id' => $this->medical_examination_id ?? null,
             'medicalExamination' => $this->medicalExamination,
+            'medical_examination' => $this->medicalExamination,
             'applicant' => $this->applicant,
             'payment' => Payment::query()
                 ->where('paymentable_id', $this->id)

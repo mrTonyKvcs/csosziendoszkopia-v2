@@ -1,4 +1,5 @@
 import NavLink from "@/Components/NavLink";
+import NotificationsSimple from "@/Components/UI/Notifications/Simple";
 import {
     ArrowDownOnSquareIcon,
     ClockIcon,
@@ -9,11 +10,55 @@ import {
     MapPinIcon,
     UsersIcon,
 } from "@heroicons/react/24/outline";
+import axios from "axios";
+import { useCallback, useState } from "react";
 
 const ConsultationListContainer = ({ consultations }) => {
-    console.log(consultations);
+    const [showNotifications, setShowNotifications] = useState(false);
+
+    const exportConsultation = useCallback(async (appointments) => {
+        try {
+            const response = await axios.post(
+                "/api/consultations/export",
+                appointments,
+                {
+                    responseType: "blob",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
+            const fileBlob = response.data;
+            const url = window.URL.createObjectURL(new Blob([fileBlob]));
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute(
+                "download",
+                appointments[0].consultation.day + ".xlsx"
+            );
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode.removeChild(link);
+
+            setShowNotifications(true);
+            setTimeout(function () {
+                setShowNotifications(false);
+            }, 5000);
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
+
     return (
         <div className="mt-3 mb-6 overflow-hidden bg-white">
+            {showNotifications && (
+                <NotificationsSimple
+                    title="Sikeres exportálás"
+                    text="Az időpontokat sikeresen exportáltad."
+                    show={showNotifications}
+                    setShow={setShowNotifications}
+                />
+            )}
             <ul
                 role="list"
                 className="grid grid-cols-2 gap-4 divide-y divide-gray-200"
@@ -47,21 +92,26 @@ const ConsultationListContainer = ({ consultations }) => {
                         <div>
                             <div className="flex -mt-px divide-x divide-gray-200">
                                 <div className="flex flex-1 w-0">
-                                    <a
-                                        href="#"
-                                        className="relative inline-flex items-center justify-center flex-1 w-0 py-2 -mr-px text-sm font-semibold text-gray-900 border border-transparent rounded-bl-lg gap-x-3"
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            exportConsultation(
+                                                consultation.appointments
+                                            )
+                                        }
+                                        className="relative inline-flex items-center justify-center flex-1 w-0 pt-2 -mr-px text-sm font-semibold text-gray-900 border border-transparent rounded-bl-lg gap-x-3"
                                     >
                                         <ArrowDownOnSquareIcon
                                             className="w-5 h-5 text-gray-400"
                                             aria-hidden="true"
                                         />
                                         Exportálás
-                                    </a>
+                                    </button>
                                 </div>
                                 <div className="flex flex-1 w-0 -ml-px">
                                     <NavLink
                                         href={`/admin/rendelesek/${consultation.doctorId}/${consultation.day}`}
-                                        className="relative inline-flex items-center justify-center flex-1 w-0 py-2 text-sm font-semibold text-gray-900 border border-transparent rounded-br-lg gap-x-3"
+                                        className="relative inline-flex items-center justify-center flex-1 w-0 pt-2 text-sm font-semibold text-gray-900 border border-transparent rounded-br-lg gap-x-3"
                                     >
                                         <ClockIcon
                                             className="w-5 h-5 text-gray-400"

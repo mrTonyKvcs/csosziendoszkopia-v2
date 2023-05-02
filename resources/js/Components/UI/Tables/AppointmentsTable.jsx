@@ -7,7 +7,6 @@ const AppointmentsTable = ({
     setOpen,
     setShowDeleteModal,
 }) => {
-    console.log("app", appointments);
     return (
         <div className="px-4 sm:px-6 lg:px-8">
             <div className="mt-10 -mx-4 ring-1 ring-gray-300 sm:mx-0 sm:rounded-sm">
@@ -107,6 +106,11 @@ const AppointmentsTable = ({
                                         "SUCCESS" && (
                                         <span className=" text-center inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
                                             Fizetett
+                                        </span>
+                                    )}
+                                    {appointment.payment?.status === "CASH" && (
+                                        <span className=" text-center inline-flex flex-shrink-0 items-center rounded-full bg-yellow-50 px-1.5 py-0.5 text-xs font-medium text-yellow-700 ring-1 ring-inset ring-yellow-600/20">
+                                            Készpénz
                                         </span>
                                     )}
                                 </td>

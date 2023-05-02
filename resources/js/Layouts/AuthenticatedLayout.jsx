@@ -47,6 +47,7 @@ const userNavigation = [
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
+console.log();
 
 export default function AuthenticatedLayout({ children }) {
     const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -141,7 +142,10 @@ export default function AuthenticatedLayout({ children }) {
                                                                             item.href
                                                                         }
                                                                         className={classNames(
-                                                                            item.current
+                                                                            item.href ===
+                                                                                window
+                                                                                    .location
+                                                                                    .pathname
                                                                                 ? "bg-gray-800 text-white"
                                                                                 : "text-gray-400 hover:text-white hover:bg-gray-800",
                                                                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -185,14 +189,14 @@ export default function AuthenticatedLayout({ children }) {
                 <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
                     {/* Sidebar component, swap this element with another sidebar if you like */}
                     <div className="flex flex-col px-6 pb-4 overflow-y-auto bg-gray-900 grow gap-y-5">
-                        <div className="flex items-center h-16 shrink-0">
+                        {/* <div className="flex items-center h-16 shrink-0">
                             <img
                                 className="w-auto h-8"
                                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                                 alt="Your Company"
                             />
-                        </div>
-                        <nav className="flex flex-col flex-1">
+                        </div> */}
+                        <nav className="flex flex-col flex-1 mt-10">
                             <ul
                                 role="list"
                                 className="flex flex-col flex-1 gap-y-7"
@@ -204,7 +208,9 @@ export default function AuthenticatedLayout({ children }) {
                                                 <NavLink
                                                     href={item.href}
                                                     className={classNames(
-                                                        item.current
+                                                        item.href ===
+                                                            window.location
+                                                                .pathname
                                                             ? "bg-gray-800 text-white"
                                                             : "text-gray-400 hover:text-white hover:bg-gray-800",
                                                         "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
@@ -256,7 +262,7 @@ export default function AuthenticatedLayout({ children }) {
                         />
 
                         <div className="flex self-stretch flex-1 gap-x-4 lg:gap-x-6">
-                            <form
+                            {/* <form
                                 className="relative flex flex-1"
                                 action="#"
                                 method="GET"
@@ -278,7 +284,7 @@ export default function AuthenticatedLayout({ children }) {
                                     type="search"
                                     name="search"
                                 />
-                            </form>
+                            </form> */}
                             <div className="flex items-center gap-x-4 lg:gap-x-6">
                                 {/* <button
                                     type="button"

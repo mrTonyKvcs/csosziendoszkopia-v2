@@ -1,6 +1,6 @@
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
-const LastStep = ({ toPrevStep, data, submit }) => {
+const LastStep = ({ data, submit, setActiveStep }) => {
     return (
         <div className="">
             <div className="px-4 py-5 border-t border-gray-200 sm:p-0">
@@ -10,7 +10,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Vizsgálat
                         </dt>
                         <dd className="mt-1 text-lg font-bold text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.examination.medical_examination.name}
+                            {data.examination.medical_examination?.name}
                         </dd>
                     </div>
                     <div className="py-4 font-bold bg-gray-100 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -18,7 +18,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Kezelőorvos neve
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.doctor.name}
+                            {data.doctor?.name}
                         </dd>
                     </div>
                     <div className="py-4 font-bold bg-gray-100 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -38,7 +38,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Név
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.name}
+                            {data.personalDetails?.name}
                         </dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -46,7 +46,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Email cím
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.email}
+                            {data.personalDetails?.email}
                         </dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -54,7 +54,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Telefonszám
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.phone}
+                            {data.personalDetails?.phone}
                         </dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -62,7 +62,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Taj-szám
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.socialSecurityNumber}
+                            {data.personalDetails?.socialSecurityNumber}
                         </dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -70,7 +70,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Irányítószám
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.zip}
+                            {data.personalDetails?.zip}
                         </dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -78,7 +78,7 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Város
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.city}
+                            {data.personalDetails?.city}
                         </dd>
                     </div>
                     <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -86,14 +86,14 @@ const LastStep = ({ toPrevStep, data, submit }) => {
                             Utca
                         </dt>
                         <dd className="mt-1 text-lg text-gray-900 sm:mt-0 sm:col-span-2">
-                            {data.personalDetails.street}
+                            {data.personalDetails?.street}
                         </dd>
                     </div>
                 </dl>
             </div>
             <div className="flex flex-col-reverse mt-5 md:flex-row">
                 <button
-                    onClick={toPrevStep}
+                    onClick={() => setActiveStep(2)}
                     type="button"
                     className="mt-5 md:mt-0 uppercase relative inline-flex items-center gap-x-1.5 mr-3 rounded-sm bg-white-600 px-3 py-2 text-sm md:text-md font-semibold text-blue-600 shadow-sm hover:bg-blue-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
