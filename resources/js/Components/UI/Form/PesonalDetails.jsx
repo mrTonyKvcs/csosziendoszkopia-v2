@@ -19,12 +19,12 @@ const PersonalDetails = ({ addPersonalDetails, setActiveStep }) => {
         clearErrors,
     } = useForm({
         name: "Teszt Elek",
-        email: "attila.kovacs92@gmail.com",
-        phone: "+36704330677",
+        email: "teszt.elek@gmail.com",
+        phone: "+36709999999",
         socialSecurityNumber: "115652436",
         zip: "6000",
-        city: "",
-        street: "Petofi S. utca 7 1/1",
+        city: "Kecskemét",
+        street: "Faragó Béla fasor 4",
         gdpr: 1,
     });
 
