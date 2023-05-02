@@ -27,14 +27,14 @@ Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 // Route::get('payment-back', [PaymentController::class, 'back'])
 //     ->name('payment.back');
 
-Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index')->middleware('auth');
+Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index');
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/rendelesek', [ConsultationsController::class, 'index'])->name('admin.consultations.index');
     Route::get('/rendelesek/{doctorId}/{day}', [ConsultationsController::class, 'show'])->name('admin.consultations.show');
     Route::get('/jelentkezok', [ApplicantsController::class, 'index'])->name('admin.consultations.index');
-});
+})->middleware(['auth']);
 
 
 
