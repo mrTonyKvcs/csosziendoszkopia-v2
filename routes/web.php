@@ -27,7 +27,7 @@ Route::get('/', [PagesController::class, 'index'])->name('pages.index');
 // Route::get('payment-back', [PaymentController::class, 'back'])
 //     ->name('payment.back');
 
-Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index');
+Route::get('/online-bejelentkezes/{user?}', [AppointmentController::class, 'index'])->name('appointment.index')->middleware('auth');
 
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

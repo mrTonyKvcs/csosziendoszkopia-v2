@@ -5,27 +5,15 @@ import { Head } from "@inertiajs/react";
 import SuccessfulContainer from "@/Containers/Payment/SuccessfulContainer";
 
 const Succesful = ({ appointment, transactionId }) => {
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        if (document.readyState === "complete") {
-            setIsLoading(false);
-        }
-    }, [document.readyState]);
-
     return (
         <>
-            {isLoading ? (
-                <Loading />
-            ) : (
-                <Guest>
-                    <Head title="Sikeres bankkártyás fizetés" />
-                    <SuccessfulContainer
-                        appointment={appointment}
-                        transactionId={transactionId}
-                    />
-                </Guest>
-            )}
+            <Guest>
+                <Head title="Sikeres bankkártyás fizetés" />
+                <SuccessfulContainer
+                    appointment={appointment}
+                    transactionId={transactionId}
+                />
+            </Guest>
         </>
     );
 };

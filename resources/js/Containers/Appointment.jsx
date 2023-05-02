@@ -18,6 +18,7 @@ const AppointmentController = ({
     doctor,
     medicalExaminations,
 }) => {
+    const [error, setError] = useState(null);
     const [data, setData] = useState(null);
     const [activeStep, setActiveStep] = useState(1);
     const {
@@ -85,7 +86,7 @@ const AppointmentController = ({
             setAppontiments(null);
             setSelectedAppointment(null);
             setSelectedConsultation(value);
-            console.log("val", value);
+
             try {
                 console.log("val", value);
                 const { data } = await axios.get(
@@ -128,18 +129,17 @@ const AppointmentController = ({
                 window.location.replace(response.data.url);
             })
             .catch((error) => {
-                console.log(error);
+                setError(error.response.data.error);
+                setActiveStep(1);
             });
     });
-
-    console.log(config, "config", selectedExamination);
 
     return (
         <>
             <Hero text="Online Időpontfoglalás" />
             <div className="flex justify-center min-h-96">
                 <div className="w-full p-5 md:p-20 md:w-3/4">
-                    <section className="mb-10 md:mb-20">
+                    <section className="mb-10 md:mb-10">
                         <h2 className="text-2xl font-bold">
                             Időpontfoglalás és fizetés
                         </h2>
@@ -152,6 +152,69 @@ const AppointmentController = ({
                             árából
                         </p>
                     </section>
+
+                    <section className="p-4 mb-5 rounded-sm bg-blue-50">
+                        <div className="flex">
+                            <div className="flex-shrink-0">
+                                <svg
+                                    className="w-5 h-5 text-blue-400"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                        clipRule="evenodd"
+                                    />
+                                </svg>
+                            </div>
+                            <div className="flex-1 ml-3 md:flex md:justify-between">
+                                <p className="text-lg text-blue-700">
+                                    <strong>Kedves Betegünk!</strong> <br />
+                                    Elsődlegesen online bejelentkezéssel tudunk
+                                    beteget fogadni. Amennyiben kérdése van,
+                                    illetve segítségre van szüksége a
+                                    foglalással kapcsolatban, jelezze felénk
+                                    email vagy telefonos elérhetőségünkön.{" "}
+                                    <br />
+                                    <br />
+                                    Vastagbéltükrözésre esetleges polyp
+                                    eltávolítást csak friss (1 héten belüli)
+                                    laboreredménnyel (teljes vérkép, INR, APTT)
+                                    tudjuk elvégezni.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {error && (
+                        <section className="p-4 mb-5 rounded-sm bg-red-50">
+                            <div className="flex">
+                                <div className="flex-shrink-0">
+                                    <svg
+                                        className="w-5 h-5 text-red-400"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20"
+                                        fill="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </div>
+                                <div className="flex-1 ml-3 md:flex md:justify-between">
+                                    <p className="text-lg text-red-700">
+                                        {error}
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                    )}
 
                     <section>
                         <StepStatus step={activeStep} />
@@ -284,6 +347,21 @@ const AppointmentController = ({
                             </>
                         )}
                     </section>
+                    <div className="flex flex-col items-center justify-center my-10">
+                        <h3 className="mb-3 text-lg font-bold uppercase">
+                            Foglaljon gyorsan és könnyedén időpontot
+                        </h3>
+                        <img class4="mb-5" src="img/section-img.png" alt="#" />
+                        <video
+                            className="mt-10"
+                            width="100%"
+                            height="auto"
+                            controls
+                        >
+                            Your browser does not support the &lt;video&gt; tag.
+                            <source src="/videos/short-online-help.mp4" />
+                        </video>
+                    </div>
                 </div>
             </div>
         </>

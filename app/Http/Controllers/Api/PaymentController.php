@@ -39,6 +39,9 @@ class PaymentController extends Controller
         $data['personalDetails']['social_security_number'] = $data['personalDetails']['socialSecurityNumber'];
         $applicant = Applicant::create($data['personalDetails']);
         $appointment = Appointment::find($data['appointment']['id']);
+        if (!empty($appointment->medical_examination_id)) {
+            return response()->json(['error' => 'Hiba! Válasszon egy másik időpontot.'], 400);
+        }
         $appointment->update(['medical_examination_id' => $data['examination']['medical_examination']['id']]);
 
         $trx = new SimplePayStart();

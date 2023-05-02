@@ -18,14 +18,14 @@ const PersonalDetails = ({ addPersonalDetails, setActiveStep }) => {
         setError,
         clearErrors,
     } = useForm({
-        name: "Teszt Elek",
-        email: "teszt.elek@gmail.com",
-        phone: "+36709999999",
-        socialSecurityNumber: "115652436",
-        zip: "6000",
-        city: "Kecskemét",
-        street: "Faragó Béla fasor 4",
-        gdpr: 1,
+        name: "",
+        email: "",
+        phone: "",
+        socialSecurityNumber: "",
+        zip: "",
+        city: "",
+        street: "",
+        gdpr: 0,
     });
 
     const validate = useCallback(() => {
