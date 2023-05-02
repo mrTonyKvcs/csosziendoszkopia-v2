@@ -7,26 +7,34 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import Checkbox from "@/Components/Checkbox";
 
-const PersonalDetails = ({ addPersonalDetails, setActiveStep }) => {
-    const {
-        data,
-        setData,
-        post,
-        processing,
-        errors,
-        reset,
-        setError,
-        clearErrors,
-    } = useForm({
-        name: "",
-        email: "",
-        phone: "",
-        socialSecurityNumber: "",
-        zip: "",
-        city: "",
-        street: "",
-        gdpr: 0,
-    });
+const PersonalDetails = ({
+    data,
+    setData,
+    addPersonalDetails,
+    setActiveStep,
+    errors,
+    setError,
+    clearErrors,
+}) => {
+    // const {
+    //     data,
+    //     setData,
+    //     post,
+    //     processing,
+    //     errors,
+    //     reset,
+    //     setError,
+    //     clearErrors,
+    // } = useForm({
+    //     name: "",
+    //     email: "",
+    //     phone: "",
+    //     socialSecurityNumber: "",
+    //     zip: "",
+    //     city: "",
+    //     street: "",
+    //     gdpr: 0,
+    // });
 
     const validate = useCallback(() => {
         clearErrors();

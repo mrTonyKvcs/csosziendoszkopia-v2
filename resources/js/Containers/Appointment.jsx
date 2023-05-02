@@ -11,6 +11,7 @@ import useSteps from "@/hooks/useSteps";
 import useAppointment from "@/hooks/useAppointment";
 import PersonalDetails from "@/Components/UI/Form/PesonalDetails";
 import LastStep from "@/Components/UI/Step/LastStep";
+import { useForm } from "@inertiajs/react";
 
 const AppointmentController = ({
     config,
@@ -18,8 +19,27 @@ const AppointmentController = ({
     doctor,
     medicalExaminations,
 }) => {
-    const [error, setError] = useState(null);
-    const [data, setData] = useState(null);
+    const [globalError, setGlobalError] = useState(null);
+    const [allData, setAllData] = useState(null);
+    const {
+        data,
+        setData,
+        post,
+        processing,
+        errors,
+        reset,
+        setError,
+        clearErrors,
+    } = useForm({
+        name: "",
+        email: "",
+        phone: "",
+        socialSecurityNumber: "",
+        zip: "",
+        city: "",
+        street: "",
+        gdpr: 0,
+    });
     const [activeStep, setActiveStep] = useState(1);
     const {
         appointments,
@@ -33,10 +53,6 @@ const AppointmentController = ({
     const [selectedExamination, setSelectedExamination] = useState(null);
     const [consultations, setConsultations] = useState(null);
     const [selectedConsultation, setSelectedConsultation] = useState(null);
-
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
 
     const handleChangeDoctor = useCallback(
         async (value) => {
@@ -106,7 +122,7 @@ const AppointmentController = ({
     );
 
     const saveAppointmentData = useCallback(() => {
-        setData({
+        setAllData({
             doctor: selectedDoctor,
             examination: selectedExamination,
             consultation: selectedConsultation,
@@ -115,7 +131,7 @@ const AppointmentController = ({
         setActiveStep(2);
         // toNextStep();
     }, [
-        data,
+        allData,
         selectedDoctor,
         selectedExamination,
         selectedConsultation,
@@ -124,15 +140,16 @@ const AppointmentController = ({
 
     const submit = useCallback(() => {
         axios
-            .post("/api/payment-start", data)
+            .post("/api/payment-start", allData)
             .then((response) => {
                 window.location.replace(response.data.url);
             })
             .catch((error) => {
-                setError(error.response.data.error);
+                console.log(error);
+                setGlobalError(error.response.data.error);
                 setActiveStep(1);
             });
-    });
+    }, [allData]);
 
     return (
         <>
@@ -189,7 +206,7 @@ const AppointmentController = ({
                         </div>
                     </section>
 
-                    {error && (
+                    {globalError && (
                         <section className="p-4 mb-5 rounded-sm bg-red-50">
                             <div className="flex">
                                 <div className="flex-shrink-0">
@@ -209,7 +226,7 @@ const AppointmentController = ({
                                 </div>
                                 <div className="flex-1 ml-3 md:flex md:justify-between">
                                     <p className="text-lg text-red-700">
-                                        {error}
+                                        {globalError}
                                     </p>
                                 </div>
                             </div>
@@ -332,15 +349,20 @@ const AppointmentController = ({
                         {activeStep === 2 && (
                             <>
                                 <PersonalDetails
-                                    addPersonalDetails={setData}
+                                    data={data}
+                                    setData={setData}
+                                    addPersonalDetails={setAllData}
                                     setActiveStep={setActiveStep}
+                                    errors={errors}
+                                    setError={setError}
+                                    clearErrors={clearErrors}
                                 />
                             </>
                         )}
                         {activeStep === 3 && (
                             <>
                                 <LastStep
-                                    data={data}
+                                    data={allData}
                                     submit={submit}
                                     setActiveStep={setActiveStep}
                                 />
