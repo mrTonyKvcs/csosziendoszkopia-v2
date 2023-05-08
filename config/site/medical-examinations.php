@@ -26,8 +26,8 @@ return [
             'Bódítás' => '15 000Ft',
             'Szövettani mintavétel' => '15 000Ft/minta',
             'Endoszkópos polypeltávolítás 1 polyp' => '19 000Ft',
-            'Endoszkópos polypeltávolítás 2 polyp' => '31 000Ft/polip',
-            'Endoszkópos polypeltávolítás 3 polyp' => '43 000Ft/polip'
+            'Endoszkópos polypeltávolítás 2 polyp' => '31 000Ft (összesen)',
+            'Endoszkópos polypeltávolítás 3 polyp' => '43 000Ft (összesen)'
         ]
     ],
     'konzultacio' => [

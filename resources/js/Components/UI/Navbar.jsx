@@ -89,10 +89,10 @@ const Navbar = () => {
                                 <Disclosure.Button
                                     key={item.name}
                                     as="a"
-                                    href="#"
+                                    href={item.href}
                                     className="block py-2 pl-3 pr-4 text-base font-medium text-blue-700 border-l-4 border-blue-500 bg-blue-50 sm:pl-5 sm:pr-6"
                                 >
-                                    Főoldal
+                                    {item.name}
                                 </Disclosure.Button>
                             ))}
                         </div>

@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="w-full p-3 text-center">
                 <div>
                     <a
-                        href="/pdfs/new-aszf.pdf"
+                        href="/pdfs/2023-aszf.pdf"
                         className="text-blue-500"
                         target="_blank"
                     >

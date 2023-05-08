@@ -20,7 +20,7 @@ const people = [
     {
         id: 28,
         name: "Dr. Novák Péter",
-        title: "Főorvos",
+        title: "Szakorvos",
         imageUrl: "/img/doctors/avatar.png",
     },
 ];
@@ -34,35 +34,35 @@ const DoctorCards = () => {
             {people.map((person) => (
                 <li
                     key={person.name}
-                    className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-sm bg-white text-center shadow"
+                    className="flex flex-col col-span-1 text-center bg-white divide-y divide-gray-200 rounded-sm shadow"
                 >
-                    <div className="flex flex-1 flex-col p-8">
+                    <div className="flex flex-col flex-1 p-8">
                         <img
-                            className="mx-auto h-32 w-32 flex-shrink-0 rounded-full"
+                            className="flex-shrink-0 w-32 h-32 mx-auto rounded-full"
                             src={person.imageUrl}
                             alt=""
                         />
                         <h3 className="mt-6 text-xl font-medium text-gray-900">
                             {person.name}
                         </h3>
-                        <dl className="mt-1 flex flex-grow flex-col justify-between">
+                        <dl className="flex flex-col justify-between flex-grow mt-1">
                             <dd className="text-lg text-gray-500">
                                 {person.title}
                             </dd>
                         </dl>
                     </div>
                     <div>
-                        <div className="-mt-px flex divide-x divide-gray-200">
-                            <div className="flex w-0 flex-1">
+                        <div className="flex -mt-px divide-x divide-gray-200">
+                            <div className="flex flex-1 w-0">
                                 {/* <button
                                     type="button"
-                                    className="uppercase relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
+                                    className="relative inline-flex items-center justify-center flex-1 w-0 py-4 -mr-px text-sm font-semibold text-gray-900 uppercase border border-transparent rounded-bl-lg gap-x-3"
                                 >
                                     Bemutatkozás
                                 </button> */}
                                 <a
                                     href={`/online-bejelentkezes/` + person.id}
-                                    className="uppercase relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900 hover:text-blue-500"
+                                    className="relative inline-flex items-center justify-center flex-1 w-0 py-4 -mr-px text-sm font-semibold text-gray-900 uppercase border border-transparent rounded-bl-lg gap-x-3 hover:text-blue-500"
                                 >
                                     Bejelentkezés
                                 </a>
