@@ -197,7 +197,9 @@ const AppointmentDetailsContainer = ({
                                                             value={name}
                                                             className="block w-full mt-1 rounded-sm"
                                                             autoComplete="name"
-                                                            isFocused={true}
+                                                            // isFocused={(e) =>
+                                                            //     e.target.selected()
+                                                            // }
                                                             onChange={(e) =>
                                                                 setName(
                                                                     e.target
@@ -234,9 +236,9 @@ const AppointmentDetailsContainer = ({
                                                                     }
                                                                     className="block w-full mt-1 rounded-sm"
                                                                     autoComplete="email"
-                                                                    isFocused={
-                                                                        true
-                                                                    }
+                                                                    // isFocused={
+                                                                    //     true
+                                                                    // }
                                                                     onChange={(
                                                                         e
                                                                     ) =>
@@ -276,9 +278,9 @@ const AppointmentDetailsContainer = ({
                                                                             }
                                                                             className="block w-full mt-1 rounded-sm"
                                                                             autoComplete="phone"
-                                                                            isFocused={
-                                                                                true
-                                                                            }
+                                                                            // isFocused={
+                                                                            //     true
+                                                                            // }
                                                                             onChange={(
                                                                                 e
                                                                             ) =>
