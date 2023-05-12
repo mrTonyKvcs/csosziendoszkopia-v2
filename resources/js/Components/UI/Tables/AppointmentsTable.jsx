@@ -1,5 +1,6 @@
 import { classNames } from "@/utils";
 import { EyeIcon, TrashIcon } from "@heroicons/react/20/solid";
+import { UserMinusIcon } from "@heroicons/react/24/outline";
 
 const AppointmentsTable = ({
     appointments,
@@ -149,7 +150,7 @@ const AppointmentsTable = ({
                                                 type="button"
                                                 className="ml-3 inline-flex items-center rounded-sm bg-red-500 px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-red-300 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-white"
                                             >
-                                                <TrashIcon
+                                                <UserMinusIcon
                                                     className="w-5 h-5 text-white"
                                                     aria-hidden="true"
                                                 />

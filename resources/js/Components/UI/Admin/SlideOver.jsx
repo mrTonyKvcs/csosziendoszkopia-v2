@@ -10,6 +10,8 @@ const SlideOver = ({
     action,
     disabled,
     hideSaveButton = false,
+    deleteAppointment = null,
+    appointmentId = null,
 }) => {
     return (
         <Transition.Root show={open} as={Fragment}>
@@ -73,7 +75,7 @@ const SlideOver = ({
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex justify-end flex-shrink-0 px-4 py-4">
+                                        <div className="flex justify-between flex-shrink-0 px-4 py-4">
                                             <button
                                                 type="button"
                                                 className="px-3 py-2 text-sm font-semibold text-gray-900 bg-white rounded-sm shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
@@ -81,6 +83,19 @@ const SlideOver = ({
                                             >
                                                 Mégsem
                                             </button>
+                                            {deleteAppointment !== null && (
+                                                <button
+                                                    type="button"
+                                                    className="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-sm shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                                    onClick={() =>
+                                                        deleteAppointment(
+                                                            appointmentId
+                                                        )
+                                                    }
+                                                >
+                                                    Törlés
+                                                </button>
+                                            )}
                                             {hideSaveButton ||
                                                 (action !== null && (
                                                     <button

@@ -13,6 +13,7 @@ const AppointmentDetailsContainer = ({
     setAppointments,
     appointment,
     allExaminations,
+    deleteAppointment,
 }) => {
     const [showNotifications, setShowNotifications] = useState(false);
     const [disabledButton, setDisabledButton] = useState(true);
@@ -64,6 +65,8 @@ const AppointmentDetailsContainer = ({
         }
     }, [appointment, setAppointments, setOpen, name, email, phone]);
 
+    console.log("appointmnet", appointment);
+
     return (
         <>
             {showNotifications && (
@@ -82,6 +85,12 @@ const AppointmentDetailsContainer = ({
                     action={null}
                     disabled={disabledButton}
                     hideSaveButton={appointment.applicant === null ?? false}
+                    deleteAppointment={
+                        appointment.applicant === null
+                            ? deleteAppointment
+                            : null
+                    }
+                    appointmentId={appointment.id}
                 >
                     <div className="px-4 py-5 sm:px-0 sm:py-0">
                         <dl className="mt-5 space-y-8 sm:space-y-0 sm:divide-y sm:divide-gray-200">

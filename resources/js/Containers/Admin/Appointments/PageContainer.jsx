@@ -25,9 +25,9 @@ const AppointmentsPageContainer = ({
     const [showExportNotifications, setShowExportNotifications] =
         useState(false);
 
-    const deleteAppointment = useCallback(() => {
+    const cancelAppointment = useCallback(() => {
         axios
-            .delete(`/api/appointments/delete/` + appointment.id)
+            .delete(`/api/appointments/cancel/` + appointment.id)
             .then((response) => {
                 setAppointments((prevAppointments) => {
                     return prevAppointments.map((prevAppointment) => {
@@ -53,6 +53,17 @@ const AppointmentsPageContainer = ({
                 console.log(error.response.data);
             });
     }, [appointment]);
+
+    const deleteAppointment = useCallback((id) => {
+        axios
+            .delete(`/api/appointments/delete/` + id)
+            .then((response) => {
+                location.reload();
+            })
+            .catch((error) => {
+                console.log(error.response.data);
+            });
+    }, []);
 
     const exportConsultation = useCallback(async (appointments) => {
         try {
@@ -93,10 +104,7 @@ const AppointmentsPageContainer = ({
             }
         >
             <Head title="Időpontok" />
-            <Header
-                title={`Időpontok (${doctor.name + " | " + day})`}
-                deleteAction={deleteAppointment}
-            />
+            <Header title={`Időpontok (${doctor.name + " | " + day})`} />
             {showExportNotifications && (
                 <NotificationsSimple
                     title="Sikeres exportálás"
@@ -139,13 +147,14 @@ const AppointmentsPageContainer = ({
                     setAppointments={setAppointments}
                     appointment={appointment}
                     allExaminations={examinations}
+                    deleteAppointment={deleteAppointment}
                 />
                 {showDeleteModal && (
                     <DeleteConfirmModal
                         open={showDeleteModal}
                         setOpen={setShowDeleteModal}
                         title="Biztosan törli az időpontot?"
-                        deleteAction={deleteAppointment}
+                        deleteAction={cancelAppointment}
                         item={appointment.time}
                     />
                 )}

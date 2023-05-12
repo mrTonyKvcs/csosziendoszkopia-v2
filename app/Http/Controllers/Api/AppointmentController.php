@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function delete(Appointment $appointment)
+    public function cancel(Appointment $appointment)
     {
         $payment = Payment::query()
             ->where('paymentable_id', $appointment->id)
@@ -25,6 +25,12 @@ class AppointmentController extends Controller
 
         $appointment->update(['medical_examination_id' => null, 'applicant_id' => null]);
 
+        return response()->json(['success' => true]);
+    }
+
+    public function delete(Appointment $appointment)
+    {
+        $appointment->delete();
         return response()->json(['success' => true]);
     }
 
