@@ -5,19 +5,28 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import ConsultationActionContainer from "./ActionContainer";
 
-const ConsultationsPageContainer = ({ defaultData, templates, doctors }) => {
+const ConsultationsPageContainer = ({
+    defaultData,
+    templates,
+    doctors,
+    archive = false,
+}) => {
     const [data, setData] = useState(defaultData);
     const [open, setOpen] = useState(false);
     return (
         <AuthenticatedLayout
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Rendelések
+                    {archive && "Archív "}Rendelések
                 </h2>
             }
         >
-            <Head title="Rendelések" />
-            <Header title="Rendelések" setOpen={setOpen} />
+            <Head title={archive ? "Archív Rendelések" : "Rendelések"} />
+            <Header
+                title={archive ? "Archív Rendelések" : "Rendelések"}
+                setOpen={setOpen}
+                archive={archive}
+            />
             <div className="px-4 sm:px-6 lg:px-8">
                 <DoctorListContainer allDoctors={data} />
             </div>

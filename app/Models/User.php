@@ -68,4 +68,11 @@ class User extends Authenticatable
             $query->where('day', '>=', now()->format('Y-m-d'));
         });
     }
+
+    public function scopeArchiveConsultations($query)
+    {
+        return $query->whereHas('consultations', function ($query) {
+            $query->where('day', '<', now()->format('Y-m-d'));
+        });
+    }
 }

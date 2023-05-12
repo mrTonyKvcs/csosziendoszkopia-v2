@@ -1,4 +1,4 @@
-const Header = ({ title, setOpen = null }) => {
+const Header = ({ title, setOpen = null, archive }) => {
     return (
         <div className="py-5 mb-10 bg-gray-100">
             <div className="px-4 sm:px-6 lg:px-8">
@@ -35,17 +35,19 @@ const Header = ({ title, setOpen = null }) => {
                         {title}
                     </h2>
                 </div>
-                <div className="flex flex-shrink-0 mt-4 md:ml-4 md:mt-0">
-                    {setOpen !== null && (
-                        <button
-                            onClick={() => setOpen(true)}
-                            type="button"
-                            className="inline-flex items-center px-3 py-2 ml-3 text-sm font-semibold text-white bg-blue-600 rounded-sm shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        >
-                            Új létrehozása
-                        </button>
-                    )}
-                </div>
+                {!archive && (
+                    <div className="flex flex-shrink-0 mt-4 md:ml-4 md:mt-0">
+                        {setOpen !== null && (
+                            <button
+                                onClick={() => setOpen(true)}
+                                type="button"
+                                className="inline-flex items-center px-3 py-2 ml-3 text-sm font-semibold text-white bg-blue-600 rounded-sm shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                            >
+                                Új létrehozása
+                            </button>
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );

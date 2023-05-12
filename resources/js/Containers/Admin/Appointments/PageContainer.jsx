@@ -52,7 +52,6 @@ const AppointmentsPageContainer = ({
             .catch((error) => {
                 console.log(error.response.data);
             });
-        console.log("deleted", appointment.id);
     }, [appointment]);
 
     const exportConsultation = useCallback(async (appointments) => {

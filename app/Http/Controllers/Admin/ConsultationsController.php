@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Exports\ConsultationExport;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AppointmentResource;
+use App\Http\Resources\ArchiveDoctorResource;
 use App\Http\Resources\DoctorResource;
 use App\Http\Resources\MedicalExaminationResource;
 use App\Http\Traits\ConsultationTrait;
@@ -55,6 +56,20 @@ class ConsultationsController extends Controller
             'day' => $day,
             'defaultAppointments' => AppointmentResource::collection($appointments),
             'examinations' => MedicalExaminationResource::collection($examinations)
+        ]);
+    }
+
+    public function archive()
+    {
+        Artisan::call('app:delete-reservation');
+        $doctors = User::doctors()->get();
+        $doctorsWithConsultations = User::doctors()->archiveConsultations()->get();
+        $templates = ConsultationTemplate::all();
+
+        return Inertia::render('Admin/Consultations/Archive', [
+            'defaultData' => ArchiveDoctorResource::collection($doctorsWithConsultations),
+            'templates' => $templates,
+            'doctors' => $doctors,
         ]);
     }
 }

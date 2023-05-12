@@ -33,6 +33,12 @@ const navigation = [
         current: false,
     },
     {
+        name: "Archív Rendelések",
+        href: "/admin/archiv-rendelesek",
+        icon: CalendarIcon,
+        current: false,
+    },
+    {
         name: "Páciensek",
         href: "/admin/jelentkezok",
         icon: UsersIcon,
