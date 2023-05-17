@@ -61,7 +61,7 @@ const ConsultationListContainer = ({ consultations }) => {
             )}
             <ul
                 role="list"
-                className="grid grid-cols-2 gap-4 divide-y divide-gray-200"
+                className="grid gap-4 divide-y divide-gray-200 md:grid-cols-2"
             >
                 {Object.values(consultations).map((consultation, index) => (
                     <li
