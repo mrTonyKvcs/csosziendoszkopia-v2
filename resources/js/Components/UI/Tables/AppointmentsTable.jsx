@@ -60,7 +60,7 @@ const AppointmentsTable = ({
                                         appointmentIdx === 0
                                             ? ""
                                             : "border-t border-gray-200",
-                                        "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell text-center"
+                                        "px-3 py-3.5 text-sm text-gray-500 table-cell text-center"
                                     )}
                                 >
                                     {appointment.id}
@@ -70,7 +70,7 @@ const AppointmentsTable = ({
                                         appointmentIdx === 0
                                             ? ""
                                             : "border-t border-gray-200",
-                                        "hidden px-3 py-3.5 text-sm text-gray-900 lg:table-cell text-center font-bold"
+                                        "px-3 py-3.5 text-sm text-gray-900 table-cell text-center font-bold"
                                     )}
                                 >
                                     {appointment.time}
@@ -80,7 +80,7 @@ const AppointmentsTable = ({
                                         appointmentIdx === 0
                                             ? ""
                                             : "border-t border-gray-200",
-                                        "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell text-center"
+                                        "px-3 py-3.5 text-sm text-gray-500 table-cell text-center"
                                     )}
                                 >
                                     {appointment.medicalExamination?.name}
@@ -90,7 +90,7 @@ const AppointmentsTable = ({
                                         appointmentIdx === 0
                                             ? ""
                                             : "border-t border-gray-200",
-                                        "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell text-center"
+                                        "px-3 py-3.5 text-sm text-gray-500 table-cell text-center"
                                     )}
                                 >
                                     {appointment.applicant?.name}
@@ -100,7 +100,7 @@ const AppointmentsTable = ({
                                         appointmentIdx === 0
                                             ? ""
                                             : "border-t border-gray-200",
-                                        "hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell text-center"
+                                        "px-3 py-3.5 text-sm text-gray-500 table-cell text-center"
                                     )}
                                 >
                                     {appointment.payment?.status ===
