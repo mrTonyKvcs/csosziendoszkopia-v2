@@ -16,7 +16,7 @@ const TemplateSelector = ({ selected, setSelected, templates }) => {
                             <span className="block truncate">
                                 {selected !== null
                                     ? selected?.name
-                                    : " Válasszon vizsgálatot"}
+                                    : " Válasszon rendelési sablont"}
                             </span>
                             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                 <ChevronUpDownIcon

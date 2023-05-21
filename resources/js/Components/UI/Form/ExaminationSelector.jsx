@@ -8,19 +8,19 @@ const ExaminationSelector = ({ selected, setSelected, examinations }) => {
         <Listbox value={selected} onChange={setSelected}>
             {({ open }) => (
                 <>
-                    <Listbox.Label className="block text-md font-medium leading-6 text-gray-900">
+                    <Listbox.Label className="block font-medium leading-6 text-gray-900 text-md">
                         Vizsgálat kiválasztása
                     </Listbox.Label>
                     <div className="relative mt-2">
-                        <Listbox.Button className="relative w-full cursor-default bg-white py-3 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 text-lg sm:leading-6">
+                        <Listbox.Button className="relative w-full py-3 pl-3 pr-10 text-lg text-left text-gray-900 bg-white shadow-sm cursor-default ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 sm:leading-6">
                             <span className="block truncate">
                                 {selected !== null
                                     ? selected.medical_examination?.name
                                     : " Válasszon vizsgálatot"}
                             </span>
-                            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                 <ChevronUpDownIcon
-                                    className="h-5 w-5 text-gray-400"
+                                    className="w-5 h-5 text-gray-400"
                                     aria-hidden="true"
                                 />
                             </span>
@@ -33,8 +33,8 @@ const ExaminationSelector = ({ selected, setSelected, examinations }) => {
                             leaveFrom="opacity-100"
                             leaveTo="opacity-0"
                         >
-                            <Listbox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto  bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                {examinations.map((examination) => (
+                            <Listbox.Options className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                                {examinations?.map((examination) => (
                                     <Listbox.Option
                                         key={examination.medical_examination.id}
                                         className={({ active }) =>
@@ -74,7 +74,7 @@ const ExaminationSelector = ({ selected, setSelected, examinations }) => {
                                                         )}
                                                     >
                                                         <CheckIcon
-                                                            className="h-5 w-5"
+                                                            className="w-5 h-5"
                                                             aria-hidden="true"
                                                         />
                                                     </span>

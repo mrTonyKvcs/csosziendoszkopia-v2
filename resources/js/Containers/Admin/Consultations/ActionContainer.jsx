@@ -18,6 +18,7 @@ import moment from "moment";
 import ConsultationBreakContainer from "./BreakContainer";
 import axios from "axios";
 import NotificationsSimple from "@/Components/UI/Notifications/Simple";
+import NewAppointmentsContainer from "./NewAppointmentsContainer";
 
 const ConsultationActionContainer = ({
     open,
@@ -81,6 +82,13 @@ const ConsultationActionContainer = ({
         },
         [data, setData]
     );
+
+    const handleEnabledTemplate = () => {
+        setEnabledTemplate(!enabledTemplate);
+        setData("appointments", null);
+        setTemplate(null);
+        console.log("hello");
+    };
 
     useEffect(() => {
         if (template?.structure?.length > 0) {
@@ -198,7 +206,7 @@ const ConsultationActionContainer = ({
                             <div>
                                 <Toggle
                                     enabled={enabledTemplate}
-                                    setEnabled={setEnabledTemplate}
+                                    setEnabled={handleEnabledTemplate}
                                     text="Rendelési sablon használata"
                                 />
                             </div>
@@ -213,6 +221,14 @@ const ConsultationActionContainer = ({
                                         selected={template}
                                         setSelected={setTemplate}
                                     />
+                                </div>
+                            )}
+                        {doctor &&
+                            data.day &&
+                            data.startAt &&
+                            !enabledTemplate && (
+                                <div className="w-full">
+                                    <NewAppointmentsContainer doctor={doctor} />
                                 </div>
                             )}
                     </div>
