@@ -127,6 +127,7 @@ const ConsultationActionContainer = ({
                 time = lastTime;
             });
             setData("appointments", times);
+            console.log("appointments", times);
             setDisabledButton(false);
         }
     }, [
@@ -228,42 +229,41 @@ const ConsultationActionContainer = ({
                             data.startAt &&
                             !enabledTemplate && (
                                 <div className="w-full">
-                                    <NewAppointmentsContainer doctor={doctor} />
+                                    <NewAppointmentsContainer
+                                        doctor={doctor}
+                                        data={data}
+                                        setData={setData}
+                                    />
                                 </div>
                             )}
                     </div>
-                    {doctor &&
-                        data.day &&
-                        data.startAt &&
-                        enabledTemplate &&
-                        template && (
-                            <div className="pt-4 pb-6">
-                                {data.appointments?.map(
-                                    (appointment, index) => (
-                                        <div
-                                            key={index}
-                                            className="px-4 py-5 bg-white border-b border-gray-200 sm:px-6"
-                                        >
-                                            {appointment.breaktime ? (
-                                                <h3 className="text-base font-semibold leading-6 text-gray-300">
-                                                    {appointment.start_at} -{" "}
-                                                    {appointment.end_at} |{" "}
-                                                    {appointment.minute} órás
-                                                    szünet
-                                                </h3>
-                                            ) : (
-                                                <h3 className="text-base font-semibold leading-6 text-gray-900">
-                                                    {appointment.start_at} -{" "}
-                                                    {appointment.end_at} |{" "}
-                                                    {appointment.minute} perces
-                                                    vizsgálat
-                                                </h3>
-                                            )}
-                                        </div>
-                                    )
-                                )}
-                            </div>
-                        )}
+                    {doctor && data.day && data.startAt && (
+                        // enabledTemplate &&
+                        // template && (
+                        <div className="pt-4 pb-6">
+                            {data.appointments?.map((appointment, index) => (
+                                <div
+                                    key={index}
+                                    className="px-4 py-5 bg-white border-b border-gray-200 sm:px-6"
+                                >
+                                    {appointment.breaktime ? (
+                                        <h3 className="text-base font-semibold leading-6 text-gray-300">
+                                            {appointment.start_at} -{" "}
+                                            {appointment.end_at} |{" "}
+                                            {appointment.minute} órás szünet
+                                        </h3>
+                                    ) : (
+                                        <h3 className="text-base font-semibold leading-6 text-gray-900">
+                                            {appointment.start_at} -{" "}
+                                            {appointment.end_at} |{" "}
+                                            {appointment.minute} perces
+                                            vizsgálat
+                                        </h3>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </SlideOver>
             )}
         </>

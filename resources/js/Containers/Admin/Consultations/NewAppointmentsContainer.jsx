@@ -1,8 +1,9 @@
 import ExaminationSelector from "@/Components/UI/Form/ExaminationSelector";
 import axios from "axios";
+import moment from "moment";
 import { useEffect, useState, useCallback } from "react";
 
-const NewAppointmentsContainer = ({ doctor }) => {
+const NewAppointmentsContainer = ({ doctor, data, setData }) => {
     const [examinations, setExaminations] = useState(null);
     const [examination, setExamination] = useState(null);
 
@@ -17,11 +18,30 @@ const NewAppointmentsContainer = ({ doctor }) => {
         }
     }, [doctor]);
 
+    const addAppointment = useCallback(() => {
+        console.log(examination, "data:", data);
+        if (data.appointments === null) {
+            const startAt = moment(data.startAt, "HH:mm");
+            const lastTime = moment(startAt).add(examination.minutes, "m");
+
+            const newAppointment = {
+                minute: examination.minutes,
+                start_at: moment(startAt).format("HH:mm"),
+                end_at: moment(lastTime).format("HH:mm"),
+                breaktime: false,
+            };
+
+            setData("appointments", [newAppointment]);
+            return true;
+        }
+        console.log("not null");
+    }, [examination, data]);
+
     useEffect(() => {
         getExaminations();
         console.log("examinations", examinations);
         console.log("examination", examination);
-    }, [doctor]);
+    }, [examination]);
 
     return (
         <div>
@@ -32,7 +52,7 @@ const NewAppointmentsContainer = ({ doctor }) => {
             />
             {examination && (
                 <button
-                    // onClick={action}
+                    onClick={addAppointment}
                     type="button"
                     className="inline-flex justify-center w-full px-3 py-2 mt-3 text-sm font-semibold text-white uppercase bg-green-600 rounded-sm shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
                 >
