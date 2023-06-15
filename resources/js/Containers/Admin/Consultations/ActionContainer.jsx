@@ -18,7 +18,7 @@ import moment from "moment";
 import ConsultationBreakContainer from "./BreakContainer";
 import axios from "axios";
 import NotificationsSimple from "@/Components/UI/Notifications/Simple";
-import NewAppointmentsContainer from "./NewAppointmentsContainer";
+import NewAppointment from "@/Components/NewAppointment";
 
 const ConsultationActionContainer = ({
     open,
@@ -28,6 +28,8 @@ const ConsultationActionContainer = ({
     setAllData,
     allDoctors,
 }) => {
+    const [examinations, setExaminations] = useState(null);
+    const [examination, setExamination] = useState(null);
     const [showNotifications, setShowNotifications] = useState(false);
     const [breakTime, setBreakTime] = useState({
         lastAppointment: "",
@@ -85,10 +87,82 @@ const ConsultationActionContainer = ({
 
     const handleEnabledTemplate = () => {
         setEnabledTemplate(!enabledTemplate);
-        setData("appointments", null);
         setTemplate(null);
-        console.log("hello");
+        setData({
+            ...data,
+            appointments: null,
+        });
     };
+
+    const getExaminations = useCallback(async () => {
+        try {
+            const { data } = await axios.get(
+                "/api/get-medical-examinations/" + doctor.id
+            );
+            setExaminations(data);
+        } catch (err) {
+            console.log(err);
+        }
+    }, [doctor]);
+
+    const addAppointment = () => {
+        if (data.appointments === null) {
+            const startAt = moment(data.startAt, "HH:mm");
+            const lastTime = moment(startAt).add(examination.minutes, "m");
+
+            const newAppointment = {
+                minute: examination.minutes,
+                start_at: moment(startAt).format("HH:mm"),
+                end_at: moment(lastTime).format("HH:mm"),
+                breaktime: false,
+            };
+
+            setData({ ...data, appointments: [newAppointment] });
+        }
+        if (data.appointments?.length >= 1) {
+            if (
+                enabledBreak &&
+                data.appointments.length === parseInt(breakTime.lastAppointment)
+            ) {
+                const lastAppointmentEnd =
+                    data.appointments[data.appointments.length - 1].end_at;
+                const startAt = moment(lastAppointmentEnd, "HH:mm");
+                const [hourWithLeadingZero, minute] = breakTime.time.split(":");
+                const hour = parseInt(hourWithLeadingZero, 10);
+                const lastTime = moment(startAt)
+                    .add(hour, "hours")
+                    .add(minute, "minutes");
+                const newBreak = {
+                    minute: breakTime.time,
+                    start_at: moment(startAt).format("HH:mm"),
+                    end_at: moment(lastTime).format("HH:mm"),
+                    breaktime: true,
+                };
+                data.appointments.push(newBreak);
+            }
+            const lastAppointmentEnd =
+                data.appointments[data.appointments.length - 1].end_at;
+            const startAt = moment(lastAppointmentEnd, "HH:mm");
+            const lastTime = moment(startAt).add(examination.minutes, "m");
+
+            const newAppointment = {
+                minute: examination.minutes,
+                start_at: moment(startAt).format("HH:mm"),
+                end_at: moment(lastTime).format("HH:mm"),
+                breaktime: false,
+            };
+
+            setData({
+                ...data,
+                appointments: [...data.appointments, newAppointment],
+            });
+        }
+        setDisabledButton(false);
+    };
+
+    useEffect(() => {
+        getExaminations();
+    }, [examination, doctor]);
 
     useEffect(() => {
         if (template?.structure?.length > 0) {
@@ -136,6 +210,10 @@ const ConsultationActionContainer = ({
         breakTime.lastAppointment,
         enabledBreak,
     ]);
+
+    useEffect(() => {
+        console.log("useEfectAppointment", data.appointments);
+    }, [data.appointments]);
 
     return (
         <>
@@ -229,10 +307,11 @@ const ConsultationActionContainer = ({
                             data.startAt &&
                             !enabledTemplate && (
                                 <div className="w-full">
-                                    <NewAppointmentsContainer
-                                        doctor={doctor}
-                                        data={data}
-                                        setData={setData}
+                                    <NewAppointment
+                                        examination={examination}
+                                        setExamination={setExamination}
+                                        examinations={examinations}
+                                        addAppointment={addAppointment}
                                     />
                                 </div>
                             )}

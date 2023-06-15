@@ -3,7 +3,13 @@ import axios from "axios";
 import moment from "moment";
 import { useEffect, useState, useCallback } from "react";
 
-const NewAppointmentsContainer = ({ doctor, data, setData }) => {
+const NewAppointmentsContainer = ({
+    doctor,
+    data,
+    setData,
+    enabledBreak,
+    breakTime,
+}) => {
     const [examinations, setExaminations] = useState(null);
     const [examination, setExamination] = useState(null);
 
@@ -19,7 +25,26 @@ const NewAppointmentsContainer = ({ doctor, data, setData }) => {
     }, [doctor]);
 
     const addAppointment = useCallback(() => {
-        console.log(examination, "data:", data);
+        if (
+            enabledBreak &&
+            data.appointments !== null &&
+            data.appointments.length === parseInt(breakTime.lastAppointment)
+        ) {
+            const [hourWithLeadingZero, minute] = breakTime.time.split(":");
+            const hour = parseInt(hourWithLeadingZero, 10);
+            const lastAppointment = data.appointments.pop().end_at;
+            console.log("lA", lastAppointment);
+            // const lastTime = moment(time)
+            //     .add(hour, "hours")
+            //     .add(minute, "minutes");
+            // const newBreak = {
+            //     minute: breakTime.time,
+            //     start_at: moment(time).format("HH:mm"),
+            //     end_at: moment(lastTime).format("HH:mm"),
+            //     breaktime: true,
+            // };
+            // console.log("breaktime:", newBreak);
+        }
         if (data.appointments === null) {
             const startAt = moment(data.startAt, "HH:mm");
             const lastTime = moment(startAt).add(examination.minutes, "m");
@@ -32,10 +57,10 @@ const NewAppointmentsContainer = ({ doctor, data, setData }) => {
             };
 
             setData("appointments", [newAppointment]);
-            return true;
+            // return true;
         }
-        console.log("not null");
-    }, [examination, data]);
+        console.log("appointments", data.appointments);
+    }, [examination, data.appointments, data.startAt, breakTime, enabledBreak]);
 
     useEffect(() => {
         getExaminations();
