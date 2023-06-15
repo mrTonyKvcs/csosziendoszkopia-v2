@@ -99,7 +99,31 @@ const ConsultationActionContainer = ({
             const { data } = await axios.get(
                 "/api/get-medical-examinations/" + doctor.id
             );
-            setExaminations(data);
+            const merged = {};
+
+            data.map((item) => {
+                const minutes = item.minutes;
+                if (merged[minutes]) {
+                    merged[minutes].push(item);
+                } else {
+                    merged[minutes] = [item];
+                }
+            });
+
+            const result = Object.values(merged).flatMap((items) =>
+                items.map((item) => {
+                    item.medical_examination.name = `${item.minutes} perces`;
+                    return item;
+                })
+            );
+            const filterResult = result.filter((obj, index, array) => {
+                return (
+                    array.findIndex((item) => item.minutes === obj.minutes) ===
+                    index
+                );
+            });
+
+            setExaminations(filterResult);
         } catch (err) {
             console.log(err);
         }
@@ -279,6 +303,9 @@ const ConsultationActionContainer = ({
                                 setBreakTime={setBreakTime}
                                 enabledBreak={enabledBreak}
                                 setEnabledBreak={setEnabledBreak}
+                                enabledTemplate={enabledTemplate}
+                                setData={setData}
+                                data={data}
                             />
                         )}
                         {doctor && data.day && data.startAt && (

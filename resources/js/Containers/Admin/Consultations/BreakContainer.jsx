@@ -5,12 +5,18 @@ const ConsultationBreakContainer = ({
     setBreakTime,
     enabledBreak,
     setEnabledBreak,
+    enabledTemplate,
+    setData,
+    data,
 }) => {
     const { buildBreakToggle, buildBreakInputs } = useConsultationBreak({
         breakTime,
         setBreakTime,
         enabledBreak,
         setEnabledBreak,
+        enabledTemplate,
+        setData,
+        data,
     });
 
     return (

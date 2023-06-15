@@ -8,21 +8,45 @@ const useConsultationBreak = ({
     setBreakTime,
     enabledBreak,
     setEnabledBreak,
+    enabledTemplate,
+    setData,
+    data,
 }) => {
-    const handleBreakValue = useCallback((event) => {
-        const { name, value } = event.target;
-        setBreakTime((prevState) => ({
-            ...prevState,
-            [name]: value,
-        }));
-    }, []);
+    const handleBreakValue = useCallback(
+        (event) => {
+            const { name, value } = event.target;
+            if (!enabledTemplate) {
+                setData({
+                    ...data,
+                    appointments: null,
+                });
+            }
+
+            setBreakTime((prevState) => ({
+                ...prevState,
+                [name]: value,
+            }));
+        },
+        [enabledTemplate, data, setBreakTime]
+    );
+
+    const handleBreakToggle = useCallback(() => {
+        if (!enabledTemplate) {
+            setData({
+                ...data,
+                appointments: null,
+            });
+        }
+
+        setEnabledBreak(!enabledBreak);
+    }, [enabledTemplate, data, setEnabledBreak]);
 
     const buildBreakToggle = useMemo(
         () => (
             <div>
                 <Toggle
                     enabled={enabledBreak}
-                    setEnabled={setEnabledBreak}
+                    setEnabled={handleBreakToggle}
                     text="Rendelési szünet beállítása"
                 />
             </div>
