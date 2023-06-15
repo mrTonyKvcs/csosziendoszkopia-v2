@@ -236,8 +236,12 @@ const ConsultationActionContainer = ({
     ]);
 
     useEffect(() => {
-        console.log("useEfectAppointment", data.appointments);
-    }, [data.appointments]);
+        setData({
+            ...data,
+            appointments: null,
+        });
+        setExamination(null);
+    }, [doctor]);
 
     return (
         <>

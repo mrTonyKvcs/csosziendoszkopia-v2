@@ -38,7 +38,7 @@ const useConsultationBreak = ({
             });
         }
 
-        setEnabledBreak(!enabledBreak);
+        setEnabledBreak((enabledBreak = !enabledBreak));
     }, [enabledTemplate, data, setEnabledBreak]);
 
     const buildBreakToggle = useMemo(
