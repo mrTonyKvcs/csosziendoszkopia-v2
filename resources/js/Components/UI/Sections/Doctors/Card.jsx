@@ -21,7 +21,7 @@ const people = [
         id: 28,
         name: "Dr. Novák Péter",
         title: "Szakorvos",
-        imageUrl: "/img/doctors/avatar.png",
+        imageUrl: "/img/doctors/dr-novak-peter.png",
     },
 ];
 
