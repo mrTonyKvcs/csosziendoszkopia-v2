@@ -46,5 +46,14 @@ return [
         'icon' => "icons/online.svg",
         'name' => "On-Line Konzultáció",
         'text' => "On- Line konzultáció: Ön az oldalon keresztül tud időpontot foglalni telefonos vagy inernetes konzultációra ( Skype vagy Zoom). Az időpont foglalása és a kártyás fizetést követően az orvos felveszi Önnel a kapcsolatot és megtörténik a megbeszélés.",
-    ]
+    ],
+	'egeszsegpszichologiai-tanacsadas' => [
+        'icon' => "icons/consultation.svg",
+        'name' => "Egészségpszichológiai tanácsadás",
+        'text' => 'A konzultáció időtartama körülbelül 50 perc',
+        'price' => 15000,
+        'extra' => [
+            'Egészségpszichológiai tanácsadás' => '15000 Ft',
+        ]
+    ],
 ];

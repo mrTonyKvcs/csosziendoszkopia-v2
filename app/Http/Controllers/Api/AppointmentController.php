@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PersonalDetailsRequest;
 use App\Http\Resources\AppointmentResource;
@@ -47,10 +48,18 @@ class AppointmentController extends Controller
 
     public function getConsultations($userId, MedicalExamination $medicalExamination)
     {
+	if ($medicalExamination->id === 2) {
+            $newDate = Carbon::now()->addDays(5);
+        } elseif ($medicalExamination->id == 5) {
+            $newDate = Carbon::now()->addDays(2);
+        } else {
+            $newDate = Carbon::now();
+	}
+
         $consultations = Consultation::query()
             ->active()
             ->where('user_id', $userId)
-            ->where('day', '>', $medicalExamination->id === 2 ? now()->addDays(5) : now())
+            ->where('day', '>', $newDate)
             ->whereHas('appointments', function ($q) {
                 $q->whereNull('applicant_id');
             })

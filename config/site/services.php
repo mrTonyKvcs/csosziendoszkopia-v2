@@ -122,4 +122,17 @@ return [
             ]
         ]
     ],
+    [
+        'section' => true,
+        'route' => 'appointments.index',
+        'name' => 'Egészségpszichológiai tanácsadás',
+        'description' => '',
+        'icon' => 'consultation.svg',
+        'informations' => [
+            [
+                'text'  => null,
+                'price' => 15000,
+            ]
+        ]
+    ],
 ];
