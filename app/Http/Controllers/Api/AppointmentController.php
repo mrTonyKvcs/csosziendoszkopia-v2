@@ -51,7 +51,7 @@ class AppointmentController extends Controller
 	if ($medicalExamination->id === 2) {
             $newDate = Carbon::now()->addDays(5);
         } elseif ($medicalExamination->id == 5) {
-            $newDate = Carbon::now()->addDays(2);
+            $newDate = Carbon::now()->addDays(5);
         } else {
             $newDate = Carbon::now();
 	}
