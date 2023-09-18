@@ -23,13 +23,19 @@ const people = [
         title: "Szakorvos",
         imageUrl: "/img/doctors/dr-novak-peter.png",
     },
+    {
+        id: 29,
+        name: "Dr. Tóth Dóri",
+        title: "Szakorvos",
+        imageUrl: "/img/doctors/dr-toth-dori.png",
+    },
 ];
 
 const DoctorCards = () => {
     return (
         <ul
             role="list"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"
         >
             {people.map((person) => (
                 <li
