@@ -25,8 +25,9 @@ félrenyelés veszélye.</p>
         @if($startAt < '16:00')
             <p>A vizsgálat akkor értékelhető, ha tisztára ”mosott” beleket vizsgálunk.</p>
             <p>Ennek feltétele a korrekt hashajtás és a bőséges folyadékbevitel.</p>
-            <p><strong>Vizsgálat előtti 5 napon már könnyen emészthető ételeket lehet fogyasztani.</strong></p>
-            <p><strong>Nem szabad enni:</strong></p>
+            <p>Gyógyszertárban, vény nélkül tudja megvásárolni a hashajtót, melynek neve: ENDOGOL.</p>
+            <p><strong>Vizsgálat előtti 5 napon már könnyen emészthető, rostmentes ételeket lehet fogyasztani.</strong></p>
+            <p><strong>Ne fogyasszon:</strong></p>
             <ul>
                 <li>zöldségeket (paradicsom, paprika, uborka...), mert a héja nehezen ürül ki.</li>
                 <li>zöld főzeléket (spenót, sóska...), gyümölcsízesítésű teát, mert megfesti a bél falát.</li>
@@ -35,22 +36,25 @@ félrenyelés veszélye.</p>
                 <li>magos kenyeret, műzlit, gabonapelyheket</li>
                 <li>rostos gyümölcsöket (mandarin, narancs) mert a rost nehezen ürül.</li>
             </ul>
-            <p><strong>Ne igyon tejet vagy tejtartalmú italokat!</strong></p>
-            <p><strong>Ha vastablettát szed, azt a vizsgálat előtt 1 héttel hagyja abba.</strong></p>
-            <p>Ügyelni kell a megfelelő folyadék bevitelre, főleg meleg nyári időszakban, ezért ha még kívánja, fogyasszon plusz folyadékot a leírtakhoz képest.</p>
-            <p><strong>Az Endogol vény nélkül kapható termék.</strong></p>
+            <br>
+            <p><strong>Ne fogyasszon:</strong></p>
+            <ul>
+                <li>Hús, krumpli, tészta, szendvics, natúr joghurt, kefír, tojás.</li>
+            </ul>
             <p>A <strong>VIZSGÁLAT ELŐTTI NAPON REGGEL</strong> könnyű reggelit fogyasszon (pl. pirítós/vajas kenyér)</p>
-            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON DÉLELŐTT 10 ÓRAKOR</strong> oldjon fel 2 tasak Endogol-t 2 liter vízben és 1-2 óra alatt fogyassza el.</p>
-            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON 15:00 ÓRAKOR</strong> oldja fel a másik 2 tasak Endogol-t 2 liter vízben és 1-2 óra alatt fogyassza el.</p>
-            <p>Ha a fentieken kívül plusz folyadékot kíván, akkor szűrt fehérszőlő- ill. almalé, fekete tea iható.</p>
-            <p>A vizsgálat napján folyadékot igyon, a reggeli gyógyszereit vegye be!</p>
-            <p><strong>Amennyiben bódítást szeretne kérni, kísérővel érkezzen.</strong></p>
-            <p><strong>A vizsgálatra kérjük hozzon maszkot, és egy pár papucsot.</strong></p>
-            <p><strong>A megbeszélt időpontban jelentkezzen a vizsgálatra a Kecskemét, Faragó Béla fasor 4. szám alatt.</strong></p>
+            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON DÉLELŐTT 10 ÓRAKOR</strong> oldjon fel 2 tasak Endogolt 2 liter vízben és bő 2 óra alatt fogyassza el. Ha nagyon édes, citromlevet tud beletenni.</p>
+            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON 15:00 ÓRAKOR</strong> ismételten oldjon fel 2 tasak Endogolt 2 liter vízben és bő 2 óra alatt fogyassza el.  </p>
+            <p>A vizsgálatig még igyon folyadékot: víz, tea, szűrt üdítő, cukrot szopogathat!</p>
+            <p>A vizsgálat napján reggel állandó gyógyszereit (pl. vérnyomáscsökkentő, szívgyógyszer, pszichiatriai gyógyszer) vegye be!</p>
+            <p>Amennyiben cukorbeteg, cukorgyógyszerét ne vegye be és az inzulint se adja be magának!!!</p>
+            <p>Ha vastablettát szed, vizsgálat előtt 1 héttel hagyja abba!</p>
+            <p>Amennyiben bódítást szeretne kérni, kísérővel érkezzen, papucsot hozzon magával.</p>
+            <p><strong>A megbeszélt időpontban jelentkezzen a vizsgálatra a Kecskemét, Faragó Béla fasor 4. szám alatt, beengedni a Csőszi Endoszkópos csengő megnyomásával tudjuk.</strong></p>
         @else
-            <p>A vizsgálat akkor értékelhető, ha tisztára „mosott” beleket vizsgálunk. Ennek feltétele a korrekt hashajtás és a bőséges folyadékbevitel.</p>
-            <p><strong>Vizsgálat előtti 5 napon már könnyen emészthető ételeket lehet fogyasztani.</strong></p>
-            <p><strong>Nem szabad enni:</strong></p>
+            <p>A vizsgálat akkor értékelhető, ha tisztára „mosott” beleket vizsgálunk.  Ennek feltétele a korrekt hashajtás és a bőséges folyadékbevitel.  </p>
+            <p>Gyógyszertárban, vény nélkül tudja megvásárolni a hashajtót, melynek neve: ENDOGOL.</p>
+            <p><strong>Vizsgálat előtti 5 napon már könnyen emészthető, rostmentes ételeket lehet fogyasztani.</strong></p>
+            <p><strong>Ne fogyasszon:</strong></p>
             <ul>
                 <li>zöldségeket (paradicsom, paprika, uborka...), mert a héja nehezen ürül ki.</li>
                 <li>zöld főzeléket (spenót, sóska...), gyümölcsízesítésű teát, mert megfesti a bél falát.</li>
@@ -59,18 +63,20 @@ félrenyelés veszélye.</p>
                 <li>magos kenyeret, műzlit, gabonapelyheket</li>
                 <li>rostos gyümölcsöket (mandarin, narancs) mert a rost nehezen ürül.</li>
             </ul>
-            <p><strong>Ne igyon tejet vagy tejtartalmú italokat!</strong></p>
-            <p><strong>Ha vastablettát szed, azt a vizsgálat előtt 1 héttel hagyja abba.</strong></p>
-            <p>Ügyelni kell a megfelelő folyadék bevitelre, főleg meleg nyári időszakban, ezért ha még kívánja, fogyasszon plusz folyadékot a leírtakhoz képest.</p>
-            <p><strong>Az Endogol vény nélkül kapható termék.</strong></p>
+            <p><strong>Ehető:</strong></p>
+            <ul>
+                <li>Hús, krumpli, tészta, szendvics, natúr joghurt, kefír, tojás.</li>
+            </ul>
             <p>A <strong>VIZSGÁLAT ELŐTTI NAPON REGGEL</strong> könnyű reggelit fogyasszon (pl. pirítós/vajas kenyér)</p>
-            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON DÉLBEN</strong> light-os, könnyű levest még ehet.</p>
-            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON DÉLUTÁN 15 órakor</strong> oldjon fel 2 tasak Endogolt 2 liter vízben és 1-2 óra alatt fogyassza el.</p>
-            <p>A <strong>VIZSGÁLAT NAPJÁN REGGEL 08:00 órakor</strong> oldja fel a másik 2 tasak Endogolt 2 liter vízben és 1-2 óra alatt fogyassza el.</p>
-            <p>Ha a fentieken kívül plusz folyadékot kíván, akkor szűrt fehérszőlő- ill. almalé, fekete tea iható.</p>
-            <p>A vizsgálat napján folyadékot igyon, a reggeli gyógyszereit vegye be!</p>
-            <p><strong>Amennyiben bódítást szeretne kérni, kísérővel érkezzen.</strong></p>
-            <p><strong>A vizsgálatra kérjük hozzon maszkot, és egy pár papucsot.</strong></p>
+            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON DÉLBEN</strong> már csak leves levét eheti, innentől kezdve enni már nem lehet.</p>
+            <p>A <strong>VIZSGÁLAT ELŐTTI NAPON DÉLUTÁN 15 órakor</strong> oldjon fel 2 tasak Endogolt  2 liter vízben és bő 2 óra alatt fogyassza el. Ha nagyon édes, citromlevet tud beletenni.</p>
+            <p>A <strong>VIZSGÁLAT NAPJÁN REGGEL 07:00 órakor</strong> állandó gyógyszereit (pl. vérnyomáscsökkentő, szívgyógyszer, pszichiatriai gyógyszer) vegye be!  Ismételten készítse el a hashajtót az előző naphoz hasonlóan: oldjon fel  2 tasak Endogolt  2 liter vízben és bő 2 óra alatt fogyassza el.  </p>
+            <p>A vizsgálatig még igyon folyadékot: víz, tea, szűrt üdítő, cukrot szopogathat!</p>
+            <br>
+            <p>Amennyiben cukorbeteg, cukorgyógyszerét ne vegye be és az inzulint se adja be magának!!!</p>
+            <p>Ha vastablettát szed, előtte 1 héttel hagyja abba!</p>
+            <p>Amennyiben bódítást szeretne kérni, kísérővel érkezzen, papucsot hozzon magával.</p>
+            <p><strong>A megbeszélt időpontban jelentkezzen a vizsgálatra a Kecskemét, Faragó Béla fasor 4. szám alatt, beengedni a Csőszi Endoszkópos csengő megnyomásával tudjuk.</strong></p>
         @endif
     @endif
 </body>
