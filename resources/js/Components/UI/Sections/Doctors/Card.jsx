@@ -25,8 +25,8 @@ const people = [
     },
     {
         id: 29,
-        name: "Dr. Tóth Dóri",
-        title: "Szakorvos",
+        name: "Tóth Dóri",
+        title: "Egészségpszichológus",
         imageUrl: "/img/doctors/dr-toth-dori.png",
     },
 ];
