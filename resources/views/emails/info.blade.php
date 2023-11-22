@@ -37,7 +37,7 @@ félrenyelés veszélye.</p>
                 <li>rostos gyümölcsöket (mandarin, narancs) mert a rost nehezen ürül.</li>
             </ul>
             <br>
-            <p><strong>Ne fogyasszon:</strong></p>
+            <p><strong>Ehető:</strong></p>
             <ul>
                 <li>Hús, krumpli, tészta, szendvics, natúr joghurt, kefír, tojás.</li>
             </ul>
