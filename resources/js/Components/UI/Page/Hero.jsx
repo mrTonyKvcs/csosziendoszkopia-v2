@@ -2,7 +2,7 @@ const Hero = ({ text }) => {
     return (
         <div className="relative px-6 py-24 overflow-hidden isolate sm:py-32 lg:px-8">
             <img
-                src="/img/counter.jpg"
+                src="/img/counter.webp"
                 alt=""
                 className="absolute inset-0 object-cover w-full h-full -z-10"
             />
@@ -31,7 +31,9 @@ const Hero = ({ text }) => {
                 />
             </div>
             <div className="max-w-2xl mx-auto text-center">
-                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{text}</h2>
+                <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+                    {text}
+                </h2>
             </div>
         </div>
     );

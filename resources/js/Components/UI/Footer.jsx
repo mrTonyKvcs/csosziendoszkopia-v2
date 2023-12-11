@@ -19,8 +19,8 @@ const Footer = () => {
                     ></iframe>
                     <img
                         className="w-full h-auto mb-1 mt-7 md:w-1/2 "
-                        src="/img/simplepay_bankcard_logo.png"
-                        alt=""
+                        src="/img/simplepay_bankcard_logo.webp"
+                        alt="SimplePay"
                     ></img>
                 </div>
             </div>

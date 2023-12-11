@@ -5,7 +5,7 @@ const CounterSection = ({ list }) => {
     return (
         <div
             style={{
-                backgroundImage: `url(/img/counter.jpg)`,
+                backgroundImage: `url(/img/counter.webp)`,
                 backgroundSize: `cover`,
             }}
             className="py-24 sm:py-32"

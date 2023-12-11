@@ -8,7 +8,12 @@ const ServiceList = ({ services }) => {
                     key={service.name}
                     className="flex flex-col justify-center items-center gap-3 w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 p-3 md:p-10"
                 >
-                    <img className="icofont" src={service.icon} width="55" />
+                    <img
+                        className="icofont"
+                        src={service.icon}
+                        width="55"
+                        alt={service.name}
+                    />
                     <h3 className="text-xl">{service.name}</h3>
                     <p className="text-gray-600 text-center">{service.text}</p>
                 </div>

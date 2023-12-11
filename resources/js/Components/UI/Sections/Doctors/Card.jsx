@@ -3,31 +3,31 @@ const people = [
         id: 11,
         name: "Dr. Csőszi Tibor",
         title: "Főorvos",
-        imageUrl: "/img/doctors/dr-csoszi-tibor.jpg",
+        imageUrl: "/img/doctors/dr-csoszi-tibor.webp",
     },
     {
         id: 27,
         name: "Dr. Dubravcsik Zsolt",
         title: "Főorvos",
-        imageUrl: "/img/doctors/dr-dubravcsik-zsolt.jpg",
+        imageUrl: "/img/doctors/dr-dubravcsik-zsolt.webp",
     },
     {
         id: 25,
         name: "Dr. Velkei Tamás",
         title: "Főorvos",
-        imageUrl: "/img/doctors/dr-velkei-tamas.jpg",
+        imageUrl: "/img/doctors/dr-velkei-tamas.webp",
     },
     {
         id: 28,
         name: "Dr. Novák Péter",
         title: "Szakorvos",
-        imageUrl: "/img/doctors/dr-novak-peter.png",
+        imageUrl: "/img/doctors/dr-novak-peter.webp",
     },
     {
         id: 29,
         name: "Tóth Dóri",
         title: "Egészségpszichológus",
-        imageUrl: "/img/doctors/dr-toth-dori.png",
+        imageUrl: "/img/doctors/dr-toth-dori.webp",
     },
 ];
 
@@ -46,7 +46,7 @@ const DoctorCards = () => {
                         <img
                             className="flex-shrink-0 w-32 h-32 mx-auto rounded-full"
                             src={person.imageUrl}
-                            alt=""
+                            alt={person.name}
                         />
                         <h3 className="mt-6 text-xl font-medium text-gray-900">
                             {person.name}

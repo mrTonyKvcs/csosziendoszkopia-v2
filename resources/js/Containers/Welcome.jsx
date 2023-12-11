@@ -11,7 +11,7 @@ import { PricesList } from "@/Components/UI/Sections/Prices";
 const WelcomeContainer = ({ services }) => {
     const medicalExaminations = useMemo(
         () => MEDICAL_EXAMINATIONS,
-        [MEDICAL_EXAMINATIONS]
+        [MEDICAL_EXAMINATIONS],
     );
     const allServices = useMemo(() => services, [services]);
     const counterList = useMemo(() => COUNTER_LIST, [COUNTER_LIST]);
@@ -44,22 +44,22 @@ const WelcomeContainer = ({ services }) => {
                 <div className="flex flex-col md:flex-row mt-8">
                     <img
                         className="w-full md:w-1/4 p-1"
-                        src="/img/portfolios/1.jpg"
+                        src="/img/portfolios/1.webp"
                         alt="Slide 1"
                     />
                     <img
                         className="w-full md:w-1/4 p-1"
-                        src="/img/portfolios/2.jpg"
+                        src="/img/portfolios/2.webp"
                         alt="Slide 2"
                     />
                     <img
                         className="w-full md:w-1/4 p-1"
-                        src="/img/portfolios/3.jpg"
+                        src="/img/portfolios/3.webp"
                         alt="Slide 3"
                     />
                     <img
                         className="w-full md:w-1/4 p-1"
-                        src="/img/portfolios/4.jpg"
+                        src="/img/portfolios/4.webp"
                         alt="Slide 4"
                     />
                 </div>

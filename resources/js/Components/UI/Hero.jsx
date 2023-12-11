@@ -5,8 +5,8 @@ const Hero = () => {
     return (
         <div className="relative pb-16 overflow-hidden bg-white isolate pt-14 sm:pb-20">
             <img
-                src="/img/sliders/5-white.png"
-                alt=""
+                src="/img/sliders/5-white.webp"
+                alt="Csőszi Endoszkópia rendelő"
                 className="absolute inset-0 object-cover w-full h-full -z-10"
             />
             <div className="px-6 mx-auto max-w-7xl lg:px-8">

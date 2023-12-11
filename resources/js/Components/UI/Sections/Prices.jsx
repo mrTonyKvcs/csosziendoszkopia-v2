@@ -11,7 +11,7 @@ export const PricesList = ({ items }) => {
                             className="mx-auto flex-shrink-0 rounded-full"
                             src={`/icons/` + item.icon}
                             width={55}
-                            alt=""
+                            alt={item.name}
                         />
                         <h3 className="mt-6 text-xl font-medium text-gray-900">
                             {item.name}
