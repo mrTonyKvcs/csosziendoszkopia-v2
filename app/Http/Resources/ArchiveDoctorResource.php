@@ -25,7 +25,7 @@ class ArchiveDoctorResource extends JsonResource
                 ->filter(function ($consultation) use ($today) {
                     return $consultation->day < $today;
                 })
-                ->sortBy('day')
+		->sortBy('day', SORT_REGULAR, true)
                 ->values()
                 ->groupBy('day')
                 ->map(function ($groupedConsultations, $key) {
